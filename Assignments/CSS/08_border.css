@@ -1,0 +1,16 @@
+.box {
+  background-color: #E0FFFF;
+  margin-bottom: 20px;
+}
+
+#first {
+  border : 6px solid black;
+}
+
+#second {
+  border : 4px solid black;
+}
+
+#third {
+  border : 2px solid black;
+}

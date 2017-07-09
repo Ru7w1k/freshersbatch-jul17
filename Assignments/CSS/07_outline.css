@@ -1,0 +1,4 @@
+.box {
+  border : 1px solid red;
+  outline: 3px dotted green;
+}
