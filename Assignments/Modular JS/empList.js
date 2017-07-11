@@ -26,17 +26,11 @@ var EmployeeList = (function() {
 	var empArr = [];
 
 	return {
-		// sort : function() {
-		// 	for(var i = 0 ; i < empArr.length ; i++) {
-		// 		for(var j = i+1 ; j < empArr.length ; j++) {
-		// 			if(empArr[i].getEmpId() > empArr[j].getEmpId()) {
-		// 				var tmp = empArr[i];
-		// 				empArr[i] = empArr[j];
-		// 				empArr[j] = tmp;
-		// 			}
-		// 		}
-		// 	}
-		// },
+		sort : function() {
+			empArr.sort(function(a,b) {
+				return a.getEmpId() - b.getEmpId();
+			})
+		},
 
 		add : function(emp) {
 			empArr.push(emp);
@@ -78,9 +72,8 @@ function load() {
 
 	res += "<h4>After Sort</h4>";
 	
-	list.sort(function(a,b) {
-		return a.getEmpId() - b.getEmpId();
-	});
+	EmployeeList.sort();
+
 	list = EmployeeList.getEmp();
 
 	for (var i in list) {
