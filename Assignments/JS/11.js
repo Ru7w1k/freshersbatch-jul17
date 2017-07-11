@@ -8,23 +8,23 @@ function vowels() {
 	var ucnt = 0;
 
 	for(var i = 0 ; i < str.length ; i++) {
-		if(str[i] == "a" ) {
+		if(str[i] == "a" || str[i] == "A" ) {
 			acnt++;
 			continue;			
 		}
-		if(str[i] == "e" ) {
+		if(str[i] == "e" || str[i] == "E" ) {
 			ecnt++;
 			continue;
 		}
-		if(str[i] == "i" ) {
+		if(str[i] == "i" || str[i] == "I" ) {
 			icnt++;
 			continue;
 		}
-		if(str[i] == "o" ) {
+		if(str[i] == "o" || str[i] == "O" ) {
 			ocnt++;
 			continue;
 		}
-		if(str[i] == "u" ) {
+		if(str[i] == "u" || str[i] == "U" ) {
 			ucnt++;
 			continue;
 		}
