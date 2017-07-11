@@ -35,3 +35,10 @@
 	letter-spacing: 2px;
 	word-spacing: 5px;
 }
+
+#footer {
+    position: fixed;
+    margin: 0px;
+    bottom: 0;
+    width: 100%;
+}
