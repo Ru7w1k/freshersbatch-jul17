@@ -1,8 +1,8 @@
 function div() {
 	try {
-		var num1 = prompt("Enter number 1 ");	
+		var num1 = parseInt(document.getElementById('num1').value);
+		var num2 = parseInt(document.getElementById('num2').value);
 
-		var num2 = prompt("Enter number 2 ");	
 		if (num2 == 0) {
 			throw "LessThanZero";
 		}
