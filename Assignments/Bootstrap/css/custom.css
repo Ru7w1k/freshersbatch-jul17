@@ -1,9 +1,58 @@
-.background-img {
+a {
+	color : white;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.background-img {	
+
+	border: 3px solid black;
 	background: url("../img/bg.jpg") no-repeat center center fixed; 
+	-webkit-filter: blur(6px);
+  -moz-filter: blur(6px);
+  -o-filter: blur(6px);
+  -ms-filter: blur(6px);
+  filter: blur(6px);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+}
+
+.center-panel {
+	padding: 20px;
+	background: rgb(255, 204, 153); /* This is for ie8 and below */
+  background: rgba(0, 0, 0, 0.5); 
+}
+
+.center-panel-animate {
+    -webkit-animation-name: center-panel-init; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 0.5s; /* Safari 4.0 - 8.0 */
+    animation-name: center-panel-init;
+    animation-duration: 0.5s;
+    animation-timing-function:linear;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes center-panel-init {
+    0%   {left:50%; top:52%; opacity: 0 }
+    50%  {left:50%; top:51%; opacity: 0.5}
+    100% {left:50%; top:50%; opacity: 1}
+}
+
+/* Standard syntax */
+@keyframes center-panel-init {
+    0%   {left:50%; top:52%; opacity: 0 }
+    50%  {left:50%; top:51%; opacity: 0.5}
+    100% {left:50%; top:50%; opacity: 1}
 }
 
 .h-center {
@@ -23,9 +72,11 @@
   top:50%;
   left:50%;
   padding:15px;
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
+  -ms-transform: translateX(-50%) translateY(-60%);
+  -webkit-transform: translate(-50%,-60%);
+  transform: translate(-50%,-60%);
+  max-height: 70%;
+  overflow-y: scroll;
 }  
 
 .name {
@@ -36,9 +87,175 @@
 	word-spacing: 5px;
 }
 
+.footer-text {
+	color: white;
+	font-family: 'Bellefair', serif;
+	font-size: 20px;
+	letter-spacing: 1px;
+	word-spacing: 3px;
+}
+
+.jumbotron-foot {
+   background: rgb(255, 204, 153); /* This is for ie8 and below */
+   background: rgba(0, 0, 0, 0.5); 
+}
+/*
+.jumbotron-head {
+   background: rgb(255, 204, 153);  This is for ie8 and below 
+   background: rgba(0, 0, 0, 0.5); 
+}*/
+
 #footer {
+		padding: 10px;
     position: fixed;
     margin: 0px;
     bottom: 0;
     width: 100%;
+}
+
+.header {
+	margin-top: 0px;
+	border: none;
+
+}
+
+.icons {
+  position:absolute;
+  top:2%;
+  left:85%;
+  padding:15px;
+}
+
+.icon {
+	margin: 5px;
+	-webkit-transition: 0.5s; /* For Safari 3.1 to 6.0 */
+  transition: 0.5s;
+  transition-timing-function: ease-out;
+}
+
+.icon:hover {
+	-moz-box-shadow: 0 0 10px 5px #fefbd8;
+	-webkit-box-shadow: 0 0 10px 5px #fefbd8;
+	box-shadow: 0px 0px 10px 5px #fefbd8;
+
+}
+
+/* Icon Animations */
+.icons-animate {
+    -webkit-animation-name: icons-init; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    animation-name: icons-init;
+    animation-duration: 1s;
+    animation-timing-function:linear;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes icons-init {
+    0%   {left:85%; top:0%;}
+    25%  {left:85%; top:1.0%;}
+    75%  {left:85%; top:1.8%;}
+    90%  {left:85%; top:1.9%;}
+    100% {left:85%; top:2%;}
+}
+
+/* Standard syntax */
+@keyframes icons-init {
+    0%   {left:85%; top:0%;}
+    25%  {left:85%; top:1.0%;}
+    75%  {left:85%; top:1.8%;}
+    90%  {left:85%; top:1.9%;}
+    100% {left:85%; top:2%;}
+}
+
+.footer-animate {
+/*    -webkit-animation-name: footer-init; 
+    -webkit-animation-duration: 1s; 
+    animation-name: footer-init;
+    animation-duration: 1s;
+    animation-timing-function:linear;*/
+
+    animation: 1s linear 0s 1 footer-init;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes footer-init {
+    0%   {bottom:-40%;}
+    25%  {bottom:-30%;}
+    75%  {bottom:-20%;}
+    90%  {bottom:-10%;}
+    100% {bottom:0%;}
+}
+
+/* Standard syntax */
+@keyframes footer-init {
+    0%   {bottom:-40%;}
+    25%  {bottom:-30%;}
+    75%  {bottom:-20%;}
+    90%  {bottom:-10%;}
+    100% {bottom:0%;}
+}
+
+.tab {
+	padding: 20px;
+}
+
+.tab:hover a{
+	color: white;
+}
+
+.tab:hover {
+	background-color: #3e4444;
+	color : white;
+}
+
+.element:hover {
+  animation: pulse 0.2s;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: rgb(255, 204, 153);
+  }
+  100% {
+    background-color: #3E4444;
+	}
+}
+
+.selected {
+	background-color: #3e4444;
+	color: white;
+}
+
+.pull-left {
+  position:absolute;
+  top:2%;
+  left:5%;
+  padding:15px;
+}
+
+/* Icon Animations */
+.icons-left-animate {
+    -webkit-animation-name: icons-init-left; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    animation-name: icons-init-left;
+    animation-duration: 1s;
+    animation-timing-function:linear;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes icons-init-left {
+    0%   {left:5%; top:0%;}
+    25%  {left:5%; top:1.0%;}
+    75%  {left:5%; top:1.8%;}
+    90%  {left:5%; top:1.9%;}
+    100% {left:5%; top:2%;}
+}
+
+/* Standard syntax */
+@keyframes icons-init-left {
+    0%   {left:5%; top:0%;}
+    25%  {left:5%; top:1.0%;}
+    75%  {left:5%; top:1.8%;}
+    90%  {left:5%; top:1.9%;}
+    100% {left:5%; top:2%;}
 }
