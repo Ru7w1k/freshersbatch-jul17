@@ -193,19 +193,19 @@ p {
 
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes icons-init {
-    0%   {left:85%; top:0%;}
-    25%  {left:85%; top:1.0%;}
-    75%  {left:85%; top:1.8%;}
-    90%  {left:85%; top:1.9%;}
+    0%   {left:85%; top:-3%;}
+    25%  {left:85%; top:-1.5%;}
+    50%  {left:85%; top:0%;}
+    75%  {left:85%; top:1.5%;}
     100% {left:85%; top:2%;}
 }
 
 /* Standard syntax */
 @keyframes icons-init {
-    0%   {left:85%; top:0%;}
-    25%  {left:85%; top:1.0%;}
-    75%  {left:85%; top:1.8%;}
-    90%  {left:85%; top:1.9%;}
+    0%   {left:85%; top:-3%;}
+    25%  {left:85%; top:-1.5%;}
+    50%  {left:85%; top:0%;}
+    75%  {left:85%; top:1.5%;}
     100% {left:85%; top:2%;}
 }
 
