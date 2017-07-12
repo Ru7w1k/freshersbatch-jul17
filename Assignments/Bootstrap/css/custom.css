@@ -3,15 +3,28 @@ a {
 }
 
 a:hover {
+	color: gray;
 	text-decoration: none;
 }
 
 .list-text {	
+	background-color: #dac292; 
 	color: black;
 	font-family: 'Bellefair', serif;
 	font-size: 16px;
 	letter-spacing: 1px;
 	word-spacing: 3px;
+}
+
+p {
+	text-indent: 40px;
+	text-align: justify;
+  text-justify: inter-word;
+}
+
+.ist-group-item {
+	border-bottom-color: black;
+	border-bottom-size :5px;
 }
 
 .background-img {	
@@ -103,6 +116,7 @@ a:hover {
 	word-spacing: 5px;
 }
 
+
 .footer-text {
 	color: white;
 	font-family: 'Bellefair', serif;
@@ -115,7 +129,7 @@ a:hover {
 	font-variant: small-caps;
 	color: white;
 	font-family: 'Bellefair', serif;
-	font-size: 18px;
+	font-size: 20px;
 	letter-spacing: 1px;
 	word-spacing: 3px;
 }
