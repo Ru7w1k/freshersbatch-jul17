@@ -13,24 +13,27 @@
 	<div class="background-img">	</div>
 	<div class="page-header header">
 		<div class="pull-left icons icons-left-animate">
-			<a href="Home.html"> <img src="img/home.svg" class="img-circle icon" height="25px" width="auto"> </a> 
-		</div>
-		<div class="pull-right icons icons-animate">
-			<a href="#"> <img src="img/fb.jpg" class="img-circle icon" height="25px" width="auto"> </a>
-			<a href="#"> <img src="img/twitter.png" class="img-circle icon" height="25px" width="auto"> </a>
-			<a href="#"> <img src="img/gplus.png" class="img-circle icon" height="25px" width="auto"> </a>
-			<a href="#"> <img src="img/in.jpg" class="img-circle icon" height="25px" width="auto"> </a>
+			<a href="Home.html" data-toggle="tooltip" data-placement="auto top" title="Home"> <img src="img/home.svg" class="img-circle icon" height="25px" width="auto"> </a> 
 		</div>
 	</div>
 
 	<div class="centereddiv v-center center-panel-animate">
-		<div class="footer-text center-panel">
-			<p>You will find social account links at the top right corner of the screen.</p>
+		<div class="center-text center-panel">
+			<p>You can connect with me using following social media sites.</p>
 			<p>If you want my help, write to me at 221B, Baker Street, London.</p>		
 		</div>
 	</div>
 
-	<div class="jumbotron-foot" id="footer">
+	<div class="v-center-bottom icons-about-animate"> 
+		<center>
+		<a href="#" data-toggle="tooltip" data-placement="auto top" title="Facebook"> <img src="img/fb.jpg" class="img-circle icon" height="40px" width="auto"> </a>
+		<a href="#" data-toggle="tooltip" data-placement="auto top" title="Twitter"> <img src="img/twitter.png" class="img-circle icon" height="40px" width="auto"> </a>
+		<a href="#" data-toggle="tooltip" data-placement="auto top" title="Google+"> <img src="img/gplus.png" class="img-circle icon" height="40px" width="auto"> </a>
+		<a href="#" data-toggle="tooltip" data-placement="auto top" title="LinkedIn"> <img src="img/in.jpg" class="img-circle icon" height="40px" width="auto"> </a>
+		</center>
+	</div>
+
+	<div class="jumbotron-foot footer-animate" id="footer">
 		<div class="row">
 			<a href="about.html"> 
 				<div class="col-md-3 tab element"> 
@@ -44,7 +47,7 @@
 			</a> 
 			<a href="deduction.html"> 
 				<div class="col-md-3 tab element"> 
-					<center><span class="footer-text">Science of Deduction </span> </center>
+					<center><span class="footer-text">The Science of Deduction </span> </center>
 				</div>
 			</a> 
 			<a href="contact.html"> 
@@ -54,5 +57,12 @@
 			</a> 
 		</div>		
 	</div>
+	
+	<script>
+		$(document).ready(function(){
+		    $('[data-toggle="tooltip"]').tooltip();   
+		});
+	</script>
+
 </body>
 </html>

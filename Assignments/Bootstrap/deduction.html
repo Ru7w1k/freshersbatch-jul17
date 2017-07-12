@@ -13,20 +13,49 @@
 	<div class="background-img">	</div>
 		<div class="page-header header">
 		<div class="pull-left icons icons-left-animate">
-			<a href="Home.html"> <img src="img/home.svg" class="img-circle icon" height="25px" width="auto"> </a> 
+			<a href="Home.html" data-toggle="tooltip" data-placement="auto top" title="Home"> <img src="img/home.svg" class="img-circle icon" height="25px" width="auto"> </a> 
 		</div>
 		<div class="pull-right icons icons-animate">
-			<a href="#"> <img src="img/fb.jpg" class="img-circle icon" height="25px" width="auto"> </a>
-			<a href="#"> <img src="img/twitter.png" class="img-circle icon" height="25px" width="auto"> </a>
-			<a href="#"> <img src="img/gplus.png" class="img-circle icon" height="25px" width="auto"> </a>
-			<a href="#"> <img src="img/in.jpg" class="img-circle icon" height="25px" width="auto"> </a>
+			<a href="#" data-toggle="tooltip" data-placement="auto top" title="Facebook"> <img src="img/fb.jpg" class="img-circle icon" height="25px" width="auto"> </a>
+			<a href="#" data-toggle="tooltip" data-placement="auto top" title="Twitter"> <img src="img/twitter.png" class="img-circle icon" height="25px" width="auto"> </a>
+			<a href="#" data-toggle="tooltip" data-placement="auto top" title="Google+"> <img src="img/gplus.png" class="img-circle icon" height="25px" width="auto"> </a>
+			<a href="#" data-toggle="tooltip" data-placement="auto top" title="LinkedIn"> <img src="img/in.jpg" class="img-circle icon" height="25px" width="auto"> </a>
+	</div>
+
+	<div class="centereddiv v-center center-panel-animate">
+		<div class="center-text center-panel">
+			<p class="center-head-text">The Science Of Deduction</p>
+			<div class="list-group">
+				<div class="list-group-item list-group-item-warning ">
+					<p>Test Case One</p>
+					<p>Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- </p>
+				</div>
+				<div class="list-group-item list-group-item-warning">
+					<p>Test Case One</p>
+					<p>Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- </p>
+				</div>
+				<div class="list-group-item list-group-item-warning">
+					<p>Test Case One</p>
+					<p>Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- </p>
+				</div>
+				<div class="list-group-item list-group-item-warning">
+					<p>Test Case One</p>
+					<p>Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- </p>
+				</div>
+				<div class="list-group-item list-group-item-warning">
+					<p>Test Case One</p>
+					<p>Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- </p>
+				</div>
+				<div class="list-group-item list-group-item-warning">
+					<p>Test Case One</p>
+					<p>Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- Description -- </p>
+				</div>
+				
+			</div>
 		</div>
 	</div>
-	<div class="centereddiv h-center v-center center-panel-animate">
-		<img src="img/ph1.png" class="img-circle">
-		<div class="name">Sherlock Holmes</div>
-	</div>
-		<div class="jumbotron-foot" id="footer">
+
+	<div class="jumbotron-foot footer-animate" id="footer">
 		<div class="row">
 			<a href="about.html"> 
 				<div class="col-md-3 tab element"> 
@@ -40,7 +69,7 @@
 			</a> 
 			<a href="deduction.html"> 
 				<div class="col-md-3 tab element selected"> 
-					<center><span class="footer-text">Science of Deduction </span> </center>
+					<center><span class="footer-text">The Science of Deduction </span> </center>
 				</div>
 			</a> 
 			<a href="contact.html"> 
@@ -50,5 +79,12 @@
 			</a> 
 		</div>		
 	</div>
+
+	<script>
+		$(document).ready(function(){
+		    $('[data-toggle="tooltip"]').tooltip();   
+		});
+	</script>
+
 </body>
 </html>

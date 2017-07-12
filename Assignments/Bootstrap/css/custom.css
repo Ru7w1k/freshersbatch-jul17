@@ -6,6 +6,14 @@ a:hover {
 	text-decoration: none;
 }
 
+.list-text {	
+	color: black;
+	font-family: 'Bellefair', serif;
+	font-size: 16px;
+	letter-spacing: 1px;
+	word-spacing: 3px;
+}
+
 .background-img {	
 
 	border: 3px solid black;
@@ -67,6 +75,14 @@ a:hover {
   transform: translate(0, -50%);
 }
 
+.v-center-bottom {
+	position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translate(0, 100%);
+}
+
 .centereddiv {
   position:absolute;
   top:50%;
@@ -76,7 +92,7 @@ a:hover {
   -webkit-transform: translate(-50%,-60%);
   transform: translate(-50%,-60%);
   max-height: 70%;
-  overflow-y: scroll;
+  overflow-y: auto;
 }  
 
 .name {
@@ -95,15 +111,27 @@ a:hover {
 	word-spacing: 3px;
 }
 
+.center-head-text {
+	font-variant: small-caps;
+	color: white;
+	font-family: 'Bellefair', serif;
+	font-size: 18px;
+	letter-spacing: 1px;
+	word-spacing: 3px;
+}
+
+.center-text {
+	color: white;
+	font-family: 'Bellefair', serif;
+	font-size: 17px;
+	letter-spacing: 1px;
+	word-spacing: 3px;
+}
+
 .jumbotron-foot {
    background: rgb(255, 204, 153); /* This is for ie8 and below */
    background: rgba(0, 0, 0, 0.5); 
 }
-/*
-.jumbotron-head {
-   background: rgb(255, 204, 153);  This is for ie8 and below 
-   background: rgba(0, 0, 0, 0.5); 
-}*/
 
 #footer {
 		padding: 10px;
@@ -233,6 +261,32 @@ a:hover {
   padding:15px;
 }
 
+.icons-about-animate {
+	-webkit-animation-name: icons-about; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+  animation-name: icons-about;
+  animation-duration: 1s;
+  animation-timing-function:linear;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes icons-about {
+    0%   {left:85%; top:-2%;}
+    25%  {left:66%; top:11%;}
+    50%  {left:44%; top:24%;}
+    75%  {left:22%; top:37%;}
+    100% {left:0%; top:50%;}
+}
+
+/* Standard syntax */
+@keyframes icons-about {
+    0%   {left:85%; top:-2%;}
+    25%  {left:66%; top:11%;}
+    50%  {left:44%; top:24%;}
+    75%  {left:22%; top:37%;}
+    100% {left:0%; top:50%;}
+}
+
 /* Icon Animations */
 .icons-left-animate {
     -webkit-animation-name: icons-init-left; /* Safari 4.0 - 8.0 */
@@ -259,3 +313,20 @@ a:hover {
     90%  {left:5%; top:1.9%;}
     100% {left:5%; top:2%;}
 }
+
+/* For Scroll Bars*/
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9); 
+}
+/* End Scroll Bars*/
+
