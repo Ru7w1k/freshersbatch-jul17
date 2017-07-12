@@ -1,10 +1,15 @@
 a {
 	color : white;
+	
+	text-decoration: none;
 }
 
 a:hover {
 	color: gray;
 	text-decoration: none;
+}
+
+a:visited{
 }
 
 .list-text {	
@@ -129,9 +134,9 @@ p {
 	font-variant: small-caps;
 	color: white;
 	font-family: 'Bellefair', serif;
-	font-size: 20px;
-	letter-spacing: 1px;
-	word-spacing: 3px;
+	font-size: 22px;
+	letter-spacing: 3px;
+	word-spacing: 6px;
 }
 
 .center-text {
