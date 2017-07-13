@@ -1,0 +1,56 @@
+.panel-header-text {
+	font-family: 'Playfair Display', serif;
+	font-size: 28px;
+	letter-spacing: 2px;
+}
+
+.panel-footer-text {
+	font-family: 'Patua One', cursive;
+	font-size: 24px;
+}
+
+.mynav {
+	max-height: 100px !important;
+}
+
+.footer {
+	background-color:#c2c2c2;
+	padding: 15px;
+  position: fixed;
+  margin: 0px;
+  bottom: 0;
+  width: 100%;
+}
+
+.left-panel {
+	margin-left: 20px;
+	background-color: lightblue;
+} 
+
+.ad-card {
+	margin: 0px;
+	padding: 0px 10px 0px 0px;
+}
+
+.col-md-8 h1 {
+	float: left;
+	font-size: 20px;
+	font-weight: bold;
+	color : black;
+}
+
+.col-md-8 h2 {
+	float: right;
+	font-size: 23px;
+	font-weight: bold;
+	color : black;
+	text-align: right;
+}
+
+.col-md-8 p {
+	clear: both;
+	text-align: justify;
+}
+
+
+
