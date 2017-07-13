@@ -10,7 +10,7 @@
 }
 
 .mynav {
-	max-height: 100px !important;
+	font-family: 'Patua One', cursive;
 }
 
 .footer {
@@ -30,6 +30,15 @@
 .ad-card {
 	margin: 0px;
 	padding: 0px 10px 0px 0px;
+	-webkit-transition: 0.5s; /* For Safari 3.1 to 6.0 */
+  transition: 0.5s;
+  transition-timing-function: ease-out;
+}
+
+.ad-card:hover {
+	-moz-box-shadow: 0 0 3px 3px #4da6ff;
+	-webkit-box-shadow: 0 0 3px 3px #4da6ff;
+	box-shadow: 0px 0px 3px 3px #4da6ff;
 }
 
 .col-md-8 h1 {
@@ -51,6 +60,3 @@
 	clear: both;
 	text-align: justify;
 }
-
-
-
