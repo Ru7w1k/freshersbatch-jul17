@@ -1,12 +1,21 @@
+body { 
+	padding-top: 70px; 
+}
+
 .panel-header-text {
 	font-family: 'Playfair Display', serif;
 	font-size: 28px;
 	letter-spacing: 2px;
 }
 
+.panel-body,
 .panel-footer-text {
 	font-family: 'Patua One', cursive;
-	font-size: 24px;
+	font-size: 14px;
+}
+
+.panel-body p {
+	font-style: normal;
 }
 
 .mynav {
@@ -22,6 +31,10 @@
   width: 100%;
 }
 
+textarea {
+    resize: none;
+}
+
 .left-panel {
 	margin-left: 20px;
 	background-color: lightblue;
@@ -35,17 +48,37 @@
   transition-timing-function: ease-out;
 }
 
+.ad-post {
+	margin: 0px;
+	padding: 0px 25px 0px 0px;
+}
+
 .ad-card:hover {
-	-moz-box-shadow: 0 0 3px 3px #4da6ff;
-	-webkit-box-shadow: 0 0 3px 3px #4da6ff;
-	box-shadow: 0px 0px 3px 3px #4da6ff;
+	-moz-box-shadow: 0 0 3px 3px #99ccff;
+	-webkit-box-shadow: 0 0 3px 3px #99ccff;
+	box-shadow: 0px 0px 3px 3px #99ccff;
+}
+
+.col-md-7 h1 {
+	font-family: 'Playfair Display', serif;
+	float: left;
+	font-size: 28px;
+	color : black;
 }
 
 .col-md-8 h1 {
+	font-family: 'Playfair Display', serif;
 	float: left;
-	font-size: 20px;
+	font-size: 28px;
+	color : black;
+}
+
+.col-md-7 h2 {
+	float: right;
+	font-size: 23px;
 	font-weight: bold;
 	color : black;
+	text-align: right;
 }
 
 .col-md-8 h2 {
@@ -56,7 +89,32 @@
 	text-align: right;
 }
 
-.col-md-8 p {
+.col-md-7 p {
+	font-family: 'Nunito', sans-serif;
+	font-size: 16px;
+	font-weight: normal;
 	clear: both;
 	text-align: justify;
+}
+
+.col-md-8 p {
+	font-family: 'Nunito', sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	clear: both;
+	text-align: justify;
+}
+
+a,
+a:hover,
+a:active,
+a:visited,
+a:link {
+	text-decoration: none;
+	color: black;
+}
+
+.btn-group-horizontal > input {
+	margin-left: 10px;
+	margin-right: 10px;
 }
