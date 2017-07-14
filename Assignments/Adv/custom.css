@@ -118,3 +118,7 @@ a:link {
 	margin-left: 10px;
 	margin-right: 10px;
 }
+
+input[type="file"] {
+	opacity: 0
+}
