@@ -1,7 +1,15 @@
-html, body { 
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body { 
 	height: 100%;
-	padding-top: 40px;
+	padding-top: 70px;
+	padding-bottom: 25px;
 	background-color: #f0f0f0;
+	margin: 0 0 100px;
 }
 
 .panel-header-text {
@@ -34,10 +42,12 @@ html, body {
 
 .footer {
 	background-color:#c2c2c2;
+	position: absolute;
 	padding: 15px;
-  margin: 0px;
+	left: 0;
   bottom: 0;
   width: 100%;
+  overflow: hidden;
 }
 
 textarea {
