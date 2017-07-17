@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Patua+One|Playfair+Display" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="custom.css">
-	<title>Post Ad</title>
+	<link href="https://fonts.googleapis.com/css?family=Patua+One|Playfair+Display|Nunito|Open+Sans" rel="stylesheet">
+
+  <!-- Custome CSS -->
+  <link rel="stylesheet" type="text/css" href="custom.css">
+	<title>Adv</title>
 </head>
 
 <body>
+
 <div class="navbar navbar-default navbar-fixed-top mynav">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -52,7 +55,7 @@
 	      	<a class="dropdown-toggle" data-toggle="dropdown" href="#">User One
 	      	<span class="caret"></span></a>
 	      	<ul class="dropdown-menu list-group">
-	      		<li class="list-group-item"><a href="messages.html"><span class="glyphicon glyphicon-inbox"> </span> Messages</a></li>
+	      		<li class="list-group-item"><a href="signup.html"><span class="glyphicon glyphicon-inbox"> </span> Messages</a></li>
 	      		<li class="list-group-item"><a href="myads.html"><span class="glyphicon glyphicon-th-list"> </span> My Ads</a></li>	      		
 	      		<li class="list-group-item"><a href="login.html"><span class="glyphicon glyphicon-log-out"> </span> Logout</a></li>  		
 	      	</ul>
@@ -63,63 +66,48 @@
 </div>
 
 <div class="container-fluid">
-<div class="row">
-	<div class="col-md-4"></div>
-	<div class="col-md-4">
-
-		<div class="panel panel-default">
-			<div class="panel-heading panel-header-text">
-				POST AD
-			</div>
-			<form class="form-horizontal">
-				<div class="panel-body">
-					<div class="form-group">
-						<label class="control-label col-sm-4" for="title">Title :</label>
-			      	<div class="col-sm-8">
-			        	<input type="text" class="form-control" id="title" placeholder="laptop sale" name="title">
-			      	</div>
-				  </div>
-				  <div class="form-group">
-						<label class="control-label col-sm-4" for="category">Category :</label>
-			      	<div class="col-sm-8">
-			        	<select class="form-control" id="category">
-			        		<option>Category 1</option>
-			        		<option>Category 2</option>
-			        		<option>Category 3</option>
-			        		<option>Category 4</option>
-			        	</select>
-			      	</div>
-				  </div>
-				  <div class="form-group">
-				  <label class="control-label col-sm-4" for="desc">Description :</label>
-			      	<div class="col-sm-8">
-			        	<textarea class="form-control" id="desc" placeholder="details about product" name="desc" rows="5"></textarea>
-			      	</div>
-				  </div>
-				  <div class="form-group">
-				  <label class="control-label col-sm-4" for="photos">Photos :</label>
-		      	<div class="col-sm-8">
-		        	<input type="file" class="form-control" id="photos" placeholder="drop images here to upload" name="photos" accept="image/*" multiple="true">
-		        </div>
-					</div>
-				</div>
-				<div class="panel-footer panel-footer-text">
-					<div class="form-group">
-						<div class="row">
-							<div class="col-md-4"></div>
-							<div class="col-md-4">
-								<center><input type="submit" name="signup" class="btn btn-primary btn-md" value="Post Ad"></center>
-							</div>
-							<div class="col-md-4"></div>
-						</div>						
-					</div>
-				</div>
-			</form>
+	<div class="row">
+		<!-- Left Panel -->
+		<div class="col-md-2 left-panel">
+			<ul type="none" class="list-group">
+				<li class="list-group-item"> User 1 </li>
+				<li class="list-group-item"> User 2 </li>
+				<li class="list-group-item"> User 3 </li>
+				<li class="list-group-item"> User 4 </li>
+			</ul>	
 		</div>
-	</div>
 
-	<div class="col-md-4"></div>
-</div>
+		<div class="col-md-1"></div>
+
+		<div class="col-md-8">
+		<!-- Messages -->
+			<div class="messages">
+				<div class="msgs">
+					<div class="msg-name">
+					User 1
+					</div>
+					<div class="their-msg">
+						Hello
+					</div>
+					<div class="my-msg">
+						Hello Buyer
+					</div>
+					<div class="their-msg">
+						Test msg
+					</div>
+				</div>
+				<div class="msg-area">
+					<input type="button" class="btn btn-primary" name="send" value="Send" style="float: right" />
+					<div style="overflow: hidden; padding-right: .5em;">
+					   <input type="text" style="width: 100%;" ame="txtmsg" class="form-control" placeholder="Enter your message .."/>
+					</div>​
+				</div>
+			</div>
+
+		</div>
+
+		<div class="col-md-1"></div>
+	</div>
 </div>
 </body>
 </html>
