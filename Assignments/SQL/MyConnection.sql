@@ -337,7 +337,7 @@ WHERE EMP.SAL IN (
 ORDER BY EMPNO;
 
 -- Q11
-SELECT DISTINCT B.ENAME AS BOSS, COUNT(*) AS SUBORDINATES
+SELECT B.ENAME AS BOSS, COUNT(*) AS SUBORDINATES
 FROM EMP E JOIN EMP B
 ON E.MGR = B.EMPNO
 GROUP BY B.ENAME;
@@ -439,3 +439,7 @@ SELECT DEPTNO, SUM(SAL)
 FROM EMP
 GROUP BY DEPTNO
 HAVING COUNT(*) > 2;
+
+
+SELECT 'db.Emp.insert({ empno:' || empno || ', ename: "' || ename || '" ,job: "' || job || '", mgr: ' || mgr || ', hiredate: new Date(' || to_char(hiredate, 'yyyy-mm-dd') || '), sal: ' || sal || ', comm : ' || nvl(comm,0) || ',deptno : ' || deptno || '});' from emp;
+
