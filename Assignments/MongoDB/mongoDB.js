@@ -105,4 +105,28 @@ db.Emp.find({$or : [{"comm" : {$lt : 100}}, {"comm" : null}]});
 db.Emp.find({ "ename": /^M/});
 
 // q27
-db.Emp.find({ "ename": /.*M/});
+db.Emp.find({ "ename": /.*M$/});
+
+// q28
+db.Emp.find({"ename": /.*M.*/});
+
+// q29
+db.Emp.find({"ename": /^[a-zA-Z]{4}N/});
+
+// q30
+db.Emp.find({"ename": /^[a-zA-Z]{2}R/});
+
+// q31
+// db.Emp.find({$month : "hiredate"});
+
+// q55
+db.Emp.find().sort({"ename" : 1});
+
+// q57
+db.Emp.find().sort({"job":1, "salary" : 1});
+
+// q58
+db.Emp.find().sort({"job":1, "salary" : -1});
+
+// q59
+db.Emp.find().sort({"job":-1, "salary" : -1});
