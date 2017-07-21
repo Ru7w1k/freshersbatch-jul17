@@ -7,7 +7,8 @@ db.Emp.insert({empno: NumberInt(7369), ename: "SMITH" ,		job: "CLERK", mgr: Numb
 db.Emp.insert({empno: NumberInt(7499), ename: "ALLEN" ,		job: "SALESMAN", mgr: NumberInt(7698), hiredate: "2001-02-20", sal: NumberInt(1600), comm : NumberInt(300),deptno : NumberInt(30), dname : "SALES", loc : "CHICAGO"});
 db.Emp.insert({empno: NumberInt(7521), ename: "WARD" ,		job: "SALESMAN", mgr: NumberInt(7698), hiredate: "2001-02-22", sal: NumberInt(1250), comm : NumberInt(500),deptno : NumberInt(30), dname : "SALES", loc : "CHICAGO"});
 db.Emp.insert({empno: NumberInt(7566), ename: "JONES" ,		job: "MANAGER", mgr: NumberInt(7839), hiredate: "2001-04-02", sal: NumberInt(2975), comm : NumberInt(0),deptno : NumberInt(20), dname : "RESEARCH", loc : "DALLAS"});
-db.Emp.insert({empno: NumberInt(7654), ename: "MARTIN" ,	job: "SALESMAN", mgr: NumberInt(7698), hiredate: "2001-09-28", sal: NumberInt(1250), comm : NumberInt(1400),deptno : NumberInt(30), dname : "SALES", loc : "CHICAGO"});
+db.Emp.insert({empno: NumberInt(7654), ename: "MARTIN" ,	job: "SALESMAN", mgr: NumberInt(7698), hiredate: "2001-09-28", sal: NumberInt(1250), comm : NumberInt(1400),deptno : NumberInt(30), dname : "SALES", loc : "CHICAGO"});
+
 db.Emp.insert({empno: NumberInt(7698), ename: "BLAKE" ,		job: "MANAGER", mgr: NumberInt(7839), hiredate: "2001-05-01", sal: NumberInt(2850), comm : NumberInt(0),deptno : NumberInt(30), dname : "SALES", loc : "CHICAGO"});
 db.Emp.insert({empno: NumberInt(7782), ename: "CLARK" ,		job: "MANAGER", mgr: NumberInt(7839), hiredate: "2001-06-09", sal: NumberInt(2450), comm : NumberInt(0),deptno : NumberInt(10), dname : "ACCOUNTING", loc : "NEW YORK"});
 db.Emp.insert({empno: NumberInt(7788), ename: "SCOTT" ,		job: "ANALYST", mgr: NumberInt(7566), hiredate: "2007-04-19", sal: NumberInt(3000), comm : NumberInt(0),deptno : NumberInt(20), dname : "RESEARCH", loc : "DALLAS"});
@@ -23,119 +24,220 @@ db.Emp.insert({empno: NumberInt(7934), ename: "MILLER" ,	job: "CLERK", mgr: Numb
 // db.Dept.insert({deptno: NumberInt(30), dname : "SALES", loc : "CHICAGO"});
 // db.Dept.insert({deptno: NumberInt(40), dname : "OPERATIONS", loc : "BOSTON"});
 
--- q1
+// q1
 db.Emp.find().pretty();
 
--- q2
+// q2
 db.Dept.find().pretty();
 
--- q3
+// q3
 db.Emp.find({"deptno" : 30});
 
--- q4
+// q4
 db.Emp.find({"job" : "CLERK"}, {"ename":1, "empno":1, "deptno": 1});
 
--- q5
+// q5
 db.Emp.find({"job" : "CLERK"}, {"ename":1, "empno":1, "deptno": 1})
 
--- q6
+// q6
 db.Emp.find({$where: "this.comm > this.sal"});
 
--- q7
-db.Emp.find({$where: "this.comm > (this.sal * 0.6)"});
-
-// q8
-db.Emp.find({$where: "this.comm > (this.sal * 0.5)"});
-
-// q9
-db.Emp.find({$and : [{"deptno" : 20}, {"sal" : {$gt : 2000}}]}, {"ename":1, "job":1, "sal":1});
-
-// q10
-db.Emp.find({$and : [{"deptno" : 30}, {"sal" : {$gte : 1500}}]});
-
-// q11
-db.Emp.find({$or : [{"job": "PRESIDENT"}, {"job": "MANAGER"}]});
-
-// q12
-db.Emp.find({$and: [{"job": "MANAGER"}, {"deptno" : {$ne : 30}}]});
-
-// q13
-db.Emp.find({$and: [{$or: [{"job": "MANAGER"},{"job": "CLERK"}]}, {"deptno": 10}]});
-
-// q14
-db.Emp.find({$or: [{"job": "MANAGER"}, {$and :[{"job": "CLERK"}, {"deptno": 10}]}]});
-
-// q15
-db.Emp.find({$or: [{$and :[{"job": "MANAGER"}, {"deptno": 10}]}, {$and :[{"job": "CLERK"}, {"deptno": 20}]}]});
-
-//  q16
-db.Emp.find({$and: [{"job": {$ne : ["MANAGER","CLERK"]}},{"sal" : {$gt : 2000}}]});
-
-// q17
-db.Emp.find({"sal" : {$gte: 1200, $lte: 1400}});
-
-// q18
-db.Emp.find({"job" : { $in : ["CLERK", "ANALYST", "SALESMAN"]}});
-
-// q19
-db.Emp.find({"job" : { $nin : ["CLERK", "ANALYST", "SALESMAN"]}});
-
-// q20
-db.Emp.find({"comm" : null});
-
-// db.Emp.update({"empno" : 7844}, {$set: {"comm" : 0}});
-// db.Emp.update({"comm" : 0}, {$set: {"comm" : null}}, {multi: true});
-
-// q21
-db.Emp.find({"comm" : 0});
-
-// q22
-db.Emp.find({"comm" : {$gt : 0}}, {"job":1});
-
-// q23
-db.Emp.find({$or : [{"comm" : {$lt : 100}}, {"comm" : null}]});
-
-// q24
-// db.Emp.find({$where : "this.comm == 0 || this.comm == null"});
-
-// q25
-// 
-
-// q26
-db.Emp.find({ "ename": /^M/});
-
-// q27
-db.Emp.find({ "ename": /.*M$/});
-
-// q28
-db.Emp.find({"ename": /.*M.*/});
-
-// q29
-db.Emp.find({"ename": /^[a-zA-Z]{4}N/});
-
-// q30
-db.Emp.find({"ename": /^[a-zA-Z]{2}R/});
-
-// q31
-// db.Emp.find({$month : "hiredate"});
-
-// q32 33 34 
-
-// q35
-
-// q36
-
-// q43
-db.Emp.find({},{$substr : {"ename", 1, 3}});
-
-// q55
-db.Emp.find().sort({"ename" : 1});
-
-// q57
-db.Emp.find({},{"ename":1, "job":1, "sal":1}).sort({"job":1, "salary" : 1});
-
-// q58
-db.Emp.find().sort({"job":1, "salary" : -1},{"ename":1, "job":1, "sal":1});
-
-// q59
-db.Emp.find().sort({"job":-1, "salary" : -1},{"ename":1, "job":1, "sal":1});
+// q7
+db.Emp.find({$where: "this.comm > (this.sal * 0.6)"});
+
+
+
+// q8
+
+db.Emp.find({$where: "this.comm > (this.sal * 0.5)"});
+
+
+
+// q9
+
+db.Emp.find({$and : [{"deptno" : 20}, {"sal" : {$gt : 2000}}]}, {"ename":1, "job":1, "sal":1});
+
+
+
+// q10
+
+db.Emp.find({$and : [{"deptno" : 30}, {"sal" : {$gte : 1500}}]});
+
+
+
+// q11
+
+db.Emp.find({$or : [{"job": "PRESIDENT"}, {"job": "MANAGER"}]});
+
+
+
+// q12
+
+db.Emp.find({$and: [{"job": "MANAGER"}, {"deptno" : {$ne : 30}}]});
+
+
+
+// q13
+
+db.Emp.find({$and: [{$or: [{"job": "MANAGER"},{"job": "CLERK"}]}, {"deptno": 10}]});
+
+
+
+// q14
+
+db.Emp.find({$or: [{"job": "MANAGER"}, {$and :[{"job": "CLERK"}, {"deptno": 10}]}]});
+
+
+
+// q15
+
+db.Emp.find({$or: [{$and :[{"job": "MANAGER"}, {"deptno": 10}]}, {$and :[{"job": "CLERK"}, {"deptno": 20}]}]});
+
+
+
+//  q16
+
+db.Emp.find({$and: [{"job": {$ne : ["MANAGER","CLERK"]}},{"sal" : {$gt : 2000}}]});
+
+
+
+// q17
+
+db.Emp.find({"sal" : {$gte: 1200, $lte: 1400}});
+
+
+
+// q18
+
+db.Emp.find({"job" : { $in : ["CLERK", "ANALYST", "SALESMAN"]}});
+
+
+
+// q19
+
+db.Emp.find({"job" : { $nin : ["CLERK", "ANALYST", "SALESMAN"]}});
+
+
+
+// q20
+
+db.Emp.find({"comm" : null});
+
+
+
+// db.Emp.update({"empno" : 7844}, {$set: {"comm" : 0}});
+
+// db.Emp.update({"comm" : 0}, {$set: {"comm" : null}}, {multi: true});
+
+
+
+// q21
+
+db.Emp.find({"comm" : 0});
+
+
+
+// q22
+
+db.Emp.find({"comm" : {$gt : 0}}, {"job":1});
+
+
+
+// q23
+
+db.Emp.find({$or : [{"comm" : {$lt : 100}}, {"comm" : null}]});
+
+
+
+// q24
+
+// db.Emp.find({$where : "this.comm == 0 || this.comm == null"});
+
+
+
+// q25
+
+// 
+
+
+
+// q26
+
+db.Emp.find({ "ename": /^M/});
+
+
+
+// q27
+
+db.Emp.find({ "ename": /.*M$/});
+
+
+
+// q28
+
+db.Emp.find({"ename": /.*M.*/});
+
+
+
+// q29
+
+db.Emp.find({"ename": /^[a-zA-Z]{4}N/});
+
+
+
+// q30
+
+db.Emp.find({"ename": /^[a-zA-Z]{2}R/});
+
+
+
+// q31
+
+// db.Emp.find({$month : "hiredate"});
+
+
+
+// q32 33 34 
+
+
+
+// q35
+getNameJob = function(obj) {return obj.ename + ", " + obj.job};
+db.Emp.find().map(getNameJob);
+
+// q36
+getCapName = function(doc) {return doc.ename.substr(0,1).toUpperCase() + doc.ename.substr(1,doc.ename.length - 1).toLowerCase()};
+db.Emp.find().map(getCapName);
+
+// q39
+getLength = function(obj) {return obj.ename + " " + obj.ename.length};
+db.Emp.find().map(getLength);
+
+// q43
+
+db.Emp.find({},{$substr : {"ename", 1, 3}});
+
+
+
+// q55
+
+db.Emp.find().sort({"ename" : 1});
+
+
+
+// q57
+
+db.Emp.find({},{"ename":1, "job":1, "sal":1}).sort({"job":1, "salary" : 1});
+
+
+
+// q58
+
+db.Emp.find().sort({"job":1, "salary" : -1},{"ename":1, "job":1, "sal":1});
+
+
+
+// q59
+
+db.Emp.find().sort({"job":-1, "salary" : -1},{"ename":1, "job":1, "sal":1});
+
