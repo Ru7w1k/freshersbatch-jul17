@@ -202,16 +202,22 @@ db.Emp.find({"ename": /^[a-zA-Z]{2}R/});
 
 
 // q35
-getNameJob = function(obj) {return obj.ename + ", " + obj.job};
+getNameJob = function(obj) {return obj.ename + ", " + obj.job};
 db.Emp.find().map(getNameJob);
 
 // q36
-getCapName = function(doc) {return doc.ename.substr(0,1).toUpperCase() + doc.ename.substr(1,doc.ename.length - 1).toLowerCase()};
-db.Emp.find().map(getCapName);
+getCapName = function(doc) {return doc.ename.substr(0,1).toUpperCase() + doc.ename.substr(1,doc.ename.length - 1).toLowerCase()};
+db.Emp.find().map(getCapName);
 
-// q39
-getLength = function(obj) {return obj.ename + " " + obj.ename.length};
+// q39
+getLength = function(obj) {return obj.ename + " " + obj.ename.length};
 db.Emp.find().map(getLength);
+
+// q41
+db.Emp.find({$where : "this.ename.substr(0,1) != 'A'"});
+
+// q42
+db.Emp.find({$where : "this.ename.substr(this.ename.length - 1, 1) != 'R'"});
 
 // q43
 
