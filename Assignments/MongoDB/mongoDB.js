@@ -119,14 +119,23 @@ db.Emp.find({"ename": /^[a-zA-Z]{2}R/});
 // q31
 // db.Emp.find({$month : "hiredate"});
 
+// q32 33 34 
+
+// q35
+
+// q36
+
+// q43
+db.Emp.find({},{$substr : {"ename", 1, 3}});
+
 // q55
 db.Emp.find().sort({"ename" : 1});
 
 // q57
-db.Emp.find().sort({"job":1, "salary" : 1});
+db.Emp.find({},{"ename":1, "job":1, "sal":1}).sort({"job":1, "salary" : 1});
 
 // q58
-db.Emp.find().sort({"job":1, "salary" : -1});
+db.Emp.find().sort({"job":1, "salary" : -1},{"ename":1, "job":1, "sal":1});
 
 // q59
-db.Emp.find().sort({"job":-1, "salary" : -1});
+db.Emp.find().sort({"job":-1, "salary" : -1},{"ename":1, "job":1, "sal":1});
