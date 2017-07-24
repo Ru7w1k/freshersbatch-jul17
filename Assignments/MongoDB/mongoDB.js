@@ -345,7 +345,17 @@ db.Emp.aggregate({
         ]}}});
         
 // q54        
-
+db.Emp.aggregate({
+    $project : {        
+        "details" : {$concat : [
+           "$ename",
+           " joined on the ",
+            {$substr : [{$dayOfMonth : "$hiredate"}, 0, -1]},
+           " of the ", 
+            {$substr : [{$month : "$hiredate"}, 0, -1]},
+            " of the year ",
+           {$substr : [{$year : "$hiredate"}, 0, -1]}           
+        ]}}});
 
 // q55
 db.Emp.find().sort({"ename" : 1});
@@ -463,4 +473,16 @@ db.Emp.aggregate({
         "dname" : 1,
         "ename" : 1}},
         {
-            $sort: {"deptno" : 1}});
+            $sort: {"deptno" : 1}});
+            
+// q8
+db.Emp.find({"loc" : "NEW YORK"}); 
+
+// q9
+db.Emp.aggregate({
+    $project : {
+        "ename" : 1,
+        "sal": 1,
+        "dname" : 1}},
+        {
+            $group : {"_id" : "$dname", "minsal" : {$min : "$sal"}}});
