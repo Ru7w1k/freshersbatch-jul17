@@ -399,4 +399,68 @@ db.Emp.aggregate({
         {
             $sort : {"month" : 1, "year" : 1}});            
             
-
+// // // COMPLEX QUERIES // // //
+// q1
+db.Emp.aggregate({
+        $project : {
+            "ename" : 1,
+            "sal" : 1,
+            "dname" : 1}},
+        {
+           $sort : {"sal" : 1}
+        },
+        {
+           $limit : 1
+        }
+        );     
+  
+// q2
+db.Emp.aggregate({
+    $project : {
+        "deptno" : 1,
+        "sal" : 1}},
+        {
+            $group :{
+                "_id" : "$deptno", 
+                "minSal" : {$min : "$sal"}} });    
+              
+// q3
+db.Emp.aggregate({
+    $project : {
+        "empno" : 1,
+        "ename" : 1,
+        "job" : 1,
+        "sal" : 1,
+        "deptno" : 1,
+        "dname" : 1
+        }},
+        {
+            $match : {"job" : "CLERK"}
+});
+
+// q4
+db.Emp.aggregate({
+    $project : {
+        "empno" : 1,
+        "ename" : 1,
+        "job" : 1,
+        "mgr" : 1,
+        "hiredate" : 1,
+        "sal" : 1,
+        "deptno" : 1}},
+        {
+            $match : {"deptno" : $where}});
+            
+// q5
+
+// q6            
+db.Emp.find({},{"empno" : 1, "ename" : 1, "deptno" : 1, "dname" : 1, "loc" : 1});
+
+// q7
+db.Emp.aggregate({
+    $project : {
+        "deptno" : 1,
+        "dname" : 1,
+        "ename" : 1}},
+        {
+            $sort: {"deptno" : 1}});
