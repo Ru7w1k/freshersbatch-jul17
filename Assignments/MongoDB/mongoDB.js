@@ -356,6 +356,25 @@ db.Emp.aggregate({
             " of the year ",
            {$substr : [{$year : "$hiredate"}, 0, -1]}           
         ]}}});
+
+// db.Emp.find().forEach(function(doc) {
+// var wMonths=['January','February','March','April','May','June','July',
+//     'August','September','October','November','December'];
+// var xDay =
+// ['First','Second','Third','Fourth','Fifth','Sixth','Seventh','Eighth',
+//     'Ninth','Tenth','Eleventh','Twelfth','Thirteenth',
+// 'Fourteenth','Fifteenth','Sixteenth','Seventeenth','Eighteenth',
+//     'Ninteenth','Twentieth','Twenty-first','Twenty-second',
+//     'Twenty- third',
+// 'Twenty-fourth','Twenty- fifth','Twenty-sixth','Twenty- seventh',
+//     'Twenty-eigth','Twenty-ninth','Thirtieth','Thirty-first'
+// ];
+// 
+// print (doc.ename,"joined on ",xDay[doc.hiredate.getDate()], 
+//     "of",wMonths[doc.hiredate.getMonth()],""
+//     ,doc.hiredate.getFullYear());});
+        
+
 
 // q55
 db.Emp.find().sort({"ename" : 1});
@@ -459,9 +478,10 @@ db.Emp.aggregate({
         "sal" : 1,
         "deptno" : 1}},
         {
-            $match : {"deptno" : $where}});
+            $match : {"deptno" : 20}});
             
 // q5
+
 
 // q6            
 db.Emp.find({},{"empno" : 1, "ename" : 1, "deptno" : 1, "dname" : 1, "loc" : 1});
@@ -476,7 +496,7 @@ db.Emp.aggregate({
             $sort: {"deptno" : 1}});
             
 // q8
-db.Emp.find({"loc" : "NEW YORK"}); 
+db.Emp.find({"loc" : "NEW YORK"}, {"ename":1, "deptno":1, "dname":1, "loc":1}); 
 
 // q9
 db.Emp.aggregate({
@@ -485,4 +505,64 @@ db.Emp.aggregate({
         "sal": 1,
         "dname" : 1}},
         {
-            $group : {"_id" : "$dname", "minsal" : {$min : "$sal"}}});
+            $group : {"_id" : "$dname", "minsal" : {$min : "$sal"}}},
+            {
+                $sort : {"minsal" : 1}});
+            
+// q10
+db.Emp.aggregate({
+    $project : {
+        "ename" : 1,
+        "sal": 1,
+        "dname" : 1}},
+        {
+            $group : {"_id" : "$dname", "maxsal" : {$max : "$sal"}}});        
+           
+// q11
+var empNo = db.Emp.find({},{"empno" : 1});
+var empNo = db.Emp.find({},{"empno" : 1});
+            
+db.Emp.aggregate({
+    $project : {
+        "ename" : 1,
+        "}});            
+        
+// q12
+
+// q13
+db.createCollection("Order");    
+db.Order.insert({
+    ID : 101,
+    OrderDate : new Date("2012-07-04"),
+    OrderNumber : 7369,
+    OrderItem : {
+        ID : 201,
+        Product : {
+            ID : 301,
+            ProductName : "EASY-TRADING"}},
+    UnitPrice : 20,
+    Quantity : 800});   
+db.Order.insert({
+    ID : 102,
+    OrderDate : new Date("2011-02-10"),
+    OrderNumber : 7900,
+    OrderItem : {
+        ID : 202,
+        Product : {
+            ID : 302,
+            ProductName : "BANK-ANYWHERE"}},
+    UnitPrice : 30,
+    Quantity : 950});  
+db.Order.insert({
+    ID : 103,
+    OrderDate : new Date("2015-09-23"),
+    OrderNumber : 7934,
+    OrderItem : {
+        ID : 203,
+        Product : {
+            ID : 303,
+            ProductName : "TRIP-MANAGER"}},
+    UnitPrice : 10,
+    Quantity : 1300});      
+    
+db.Order.find({},{"OrderNumber" : 1, "OrderDate" : 1, "OrderItem.Product.ProductName" : 1, "Quantity" : 1, "UnitPrice" : 1});
