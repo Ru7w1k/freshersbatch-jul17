@@ -565,4 +565,10 @@ db.Order.insert({
     UnitPrice : 10,
     Quantity : 1300});      
     
-db.Order.find({},{"OrderNumber" : 1, "OrderDate" : 1, "OrderItem.Product.ProductName" : 1, "Quantity" : 1, "UnitPrice" : 1});
+db.Order.find({},{"OrderNumber" : 1, "OrderDate" : 1, "OrderItem.Product.ProductName" : 1, "Quantity" : 1, "UnitPrice" : 1});
+
+// q14
+db.Emp.find({},{"ename" : 1, "sal": 1}).sort({"sal":1}).skip(1).limit(1);
+
+// q15
+db.Emp.find({},{"ename" : 1, "sal": 1}).sort({"sal":-1}).limit(3);
