@@ -1,4 +1,3 @@
-		use test;
 
 db.createCollection("Emp");
 db.createCollection("Dept");
@@ -212,16 +211,16 @@ db.Emp.find().map(getCapName);
 // q39
 getLength = function(obj) {return obj.ename + " " + obj.ename.length};
 db.Emp.find().map(getLength);
-
-// q41
-db.Emp.find({$where : "this.ename.substr(0,1) != 'A'"});
-
-// q42
-db.Emp.find({$where : "this.ename.substr(this.ename.length - 1, 1) != 'R'"});
 
-// q43
+// q41
+db.Emp.find({$where : "this.ename.substr(0,1) != 'A'"});
 
-db.Emp.find({},{$substr : {"ename", 1, 3}});
+// q42
+db.Emp.find({$where : "this.ename.substr(this.ename.length - 1, 1) != 'R'"});
+
+// q43
+getFirstThree = function(doc) {return doc.ename.substr(0,3)};
+db.Emp.find().map(getFirstThree());
 
 
 
