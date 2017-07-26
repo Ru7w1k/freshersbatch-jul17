@@ -9,6 +9,7 @@ export function getNextArmstrong() {
 };
 
 function isArmstrong(num) {
+    
     let sum = 0;
     while (num > 0) {
         let r = num % 10;

@@ -61,9 +61,6 @@
 	(0, _iterators.getNextArmstrong)();
 	(0, _iterators.getNextArmstrong)();
 
-	// document.write("<h1>Hello ES6!</h1>");
-	// console.log("Hello ES6");
-
 /***/ },
 /* 1 */
 /***/ function(module, exports) {
@@ -240,6 +237,7 @@
 	};
 
 	function isArmstrong(num) {
+
 	    var sum = 0;
 	    while (num > 0) {
 	        var r = num % 10;
