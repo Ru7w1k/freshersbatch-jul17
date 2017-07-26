@@ -6,12 +6,12 @@ import { testExtendedParameterHandling } from './components/extended_parameter_h
 import { testTemplateLiteral } from './components/template_literal.js'
 import { testDestructuringAssignment } from './components/destructuring_assignment.js';
 
-// testConstant();
-// testScoping();
-//testEnhancedObjectProperties();
-//testArrow();
+testConstant();
+testScoping();
+testEnhancedObjectProperties();
+testArrow();
 testExtendedParameterHandling();
-//testTemplateLiteral();
+testTemplateLiteral();
 testDestructuringAssignment();
 
 

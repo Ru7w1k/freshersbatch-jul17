@@ -60,12 +60,12 @@
 
 	var _destructuring_assignment = __webpack_require__(7);
 
-	// testConstant();
-	// testScoping();
-	//testEnhancedObjectProperties();
-	//testArrow();
+	(0, _constants.testConstant)();
+	(0, _scoping.testScoping)();
+	(0, _enhanced_object_properties.testEnhancedObjectProperties)();
+	(0, _arrow.testArrow)();
 	(0, _extended_parameter_handling.testExtendedParameterHandling)();
-	//testTemplateLiteral();
+	(0, _template_literal.testTemplateLiteral)();
 	(0, _destructuring_assignment.testDestructuringAssignment)();
 
 	// document.write("<h1>Hello ES6!</h1>");
