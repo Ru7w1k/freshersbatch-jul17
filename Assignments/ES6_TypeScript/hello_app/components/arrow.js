@@ -11,5 +11,4 @@ export function testArrow() {
     });
 
     console.log(lens);
-
 }
