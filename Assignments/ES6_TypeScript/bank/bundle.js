@@ -257,10 +257,18 @@
 
 	function isArmstrong(num) {
 	    var sum = 0;
+	    var len = 0;
 	    var cur = num;
+
+	    while (num > 0) {
+	        num = Math.floor(num / 10);
+	        len += 1;
+	    }
+
+	    cur = num;
 	    while (num > 0) {
 	        var r = num % 10;
-	        sum = sum + r * r * r;
+	        sum = sum + Math.pow(r, len);
 	        num = Math.floor(num / 10);
 	    }
 

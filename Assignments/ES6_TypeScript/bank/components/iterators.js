@@ -16,10 +16,18 @@ export class Armstrong {
 
 function isArmstrong(num) {
     let sum = 0;
+    let len = 0;
     let cur = num;
+
+    while (num > 0) {
+        num = Math.floor(num / 10);
+        len += 1;
+    }
+
+    cur = num;
     while (num > 0) {
         let r = num % 10;
-        sum = sum + (r * r * r);
+        sum = sum + Math.pow(r,len);
         num = Math.floor(num / 10);
     }
 
