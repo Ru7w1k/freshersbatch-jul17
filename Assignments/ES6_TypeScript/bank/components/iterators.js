@@ -19,8 +19,8 @@ function isArmstrong(num) {
     let len = 0;
     let cur = num;
 
-    while (num > 0) {
-        num = Math.floor(num / 10);
+    while (cur > 0) {
+        cur = Math.floor(cur / 10);
         len += 1;
     }
 

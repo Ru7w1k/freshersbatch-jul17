@@ -62,6 +62,14 @@
 	arm.getNextArmstrong();
 	arm.getNextArmstrong();
 	arm.getNextArmstrong();
+	arm.getNextArmstrong();
+	arm.getNextArmstrong();
+	arm.getNextArmstrong();
+	arm.getNextArmstrong();
+	arm.getNextArmstrong();
+	arm.getNextArmstrong();
+	arm.getNextArmstrong();
+	arm.getNextArmstrong();
 
 /***/ },
 /* 1 */
@@ -260,8 +268,8 @@
 	    var len = 0;
 	    var cur = num;
 
-	    while (num > 0) {
-	        num = Math.floor(num / 10);
+	    while (cur > 0) {
+	        cur = Math.floor(cur / 10);
 	        len += 1;
 	    }
 

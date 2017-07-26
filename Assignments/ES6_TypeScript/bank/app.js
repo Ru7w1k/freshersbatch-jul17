@@ -12,5 +12,13 @@ arm.getNextArmstrong();
 arm.getNextArmstrong();
 arm.getNextArmstrong();
 arm.getNextArmstrong();
+arm.getNextArmstrong();
+arm.getNextArmstrong();
+arm.getNextArmstrong();
+arm.getNextArmstrong();
+arm.getNextArmstrong();
+arm.getNextArmstrong();
+arm.getNextArmstrong();
+arm.getNextArmstrong();
 
 
