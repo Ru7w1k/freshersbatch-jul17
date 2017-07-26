@@ -54,12 +54,14 @@
 
 	// testBank();
 	// testFib();
-	(0, _iterators.getNextArmstrong)();
-	(0, _iterators.getNextArmstrong)();
-	(0, _iterators.getNextArmstrong)();
-	(0, _iterators.getNextArmstrong)();
-	(0, _iterators.getNextArmstrong)();
-	(0, _iterators.getNextArmstrong)();
+
+	var arm = new _iterators.Armstrong();
+	arm.getNextArmstrong();
+	arm.getNextArmstrong();
+	arm.getNextArmstrong();
+	arm.getNextArmstrong();
+	arm.getNextArmstrong();
+	arm.getNextArmstrong();
 
 /***/ },
 /* 1 */
@@ -225,20 +227,37 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.getNextArmstrong = getNextArmstrong;
-	var cur = 0;
 
-	function getNextArmstrong() {
-	    while (!isArmstrong(cur)) {
-	        cur += 1;
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var cur = Symbol();
+
+	var Armstrong = exports.Armstrong = function () {
+	    function Armstrong() {
+	        _classCallCheck(this, Armstrong);
+
+	        this[cur] = 0;
 	    }
-	    console.log('Armstrong Number', cur);
-	    cur += 1;
-	};
+
+	    _createClass(Armstrong, [{
+	        key: 'getNextArmstrong',
+	        value: function getNextArmstrong() {
+	            while (!isArmstrong(this[cur])) {
+	                this[cur] += 1;
+	            }
+	            console.log('Armstrong Number', this[cur]);
+	            this[cur] += 1;
+	        }
+	    }]);
+
+	    return Armstrong;
+	}();
 
 	function isArmstrong(num) {
-
 	    var sum = 0;
+	    var cur = num;
 	    while (num > 0) {
 	        var r = num % 10;
 	        sum = sum + r * r * r;
