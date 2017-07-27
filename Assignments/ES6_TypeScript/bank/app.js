@@ -26,6 +26,6 @@ import { testPromise } from './components/promise.js'
 // arm.getNextArmstrong();
 
 // testGenerator();
-//testCollection();
+// testCollection();
 testPromise();
 
