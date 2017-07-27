@@ -8333,7 +8333,7 @@
 	    try {
 	        console.log(armstrNo.next());
 	        console.log(armstrNo.next());
-	        console.log(armstrNo.next());
+	        console.log(armstrNo.next(true));
 	        console.log(armstrNo.next());
 	        console.log(armstrNo.next());
 	        console.log(armstrNo.next());
