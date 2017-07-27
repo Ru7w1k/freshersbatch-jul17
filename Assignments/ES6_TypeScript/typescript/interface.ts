@@ -3,15 +3,16 @@ interface IPrintable {
 }
 
 let circle : IPrintable = {
-    print: () => console.log("This is a circle!")
+    print: () : void => console.log("This is a circle!")
 }
 
 let employee : IPrintable = {
-    print: () => console.log("This is an employee!")
+    print: () : void => console.log("This is an employee!")
 }
 
-function printAll(printables : Array<IPrintable>) : void {
-    printables.forEach((obj) => obj.print());
+function printAll(printables : IPrintable[]) : void {
+    printables.forEach((obj : IPrintable) : void => obj.print());
 }
 
-printAll([circle, employee]);
+let arr : IPrintable[] = [circle, employee];
+printAll(arr);

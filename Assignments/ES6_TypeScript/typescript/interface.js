@@ -7,4 +7,5 @@ var employee = {
 function printAll(printables) {
     printables.forEach(function (obj) { return obj.print(); });
 }
-printAll([circle, employee]);
+var arr = [circle, employee];
+printAll(arr);
