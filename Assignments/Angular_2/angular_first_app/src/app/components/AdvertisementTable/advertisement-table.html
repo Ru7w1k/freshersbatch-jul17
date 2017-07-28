@@ -1,3 +1,11 @@
+ <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <input class="form-control" placeholder="Search Here.." type="text" (keyup)="0" #searchRef> 
+    </div>
+    <div class="col-md-3"></div>
+</div> 
+
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-12">
@@ -8,12 +16,15 @@
             <th> Category </th>
             <th> Description </th>
         </tr>
-        <tr *ngFor="let ad of ads">
+        
+        <tr *ngFor="let ad of allAds|contains:searchRef.value">
             <td>{{ad.title}}</td>
             <td>{{ad.name}}</td>
             <td>{{ad.category}}</td>
             <td>{{ad.description}}</td>
+            <td (click)="delAdv(ad)">Delete</td>
         </tr>
+
     </table>
     </div>
     <div class="col-md-2"></div>
