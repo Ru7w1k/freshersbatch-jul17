@@ -9,12 +9,17 @@ import { Adv } from '../../classes/Adv/adv.class';
 
 export class AdvertisementTableComponent {
     allAds: Adv[];
+    
     delAdv(ad : Adv) : void {
-        this.allAds.forEach((adv) => {
-            if(adv === ad) {
-                
+        for(let i = 0 ; i < this.allAds.length ; i++) {
+            if(this.allAds[i] === ad) {
+                this.allAds.splice(i,1);
             }
-        });
+        }
+    }
+
+    editAdv(ad: Adv) : void {
+
     }
 
 }

@@ -1,31 +1,35 @@
- <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-        <input class="form-control" placeholder="Search Here.." type="text" (keyup)="0" #searchRef> 
-    </div>
-    <div class="col-md-3"></div>
-</div> 
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <input class="form-control" placeholder="Search Here.." type="text" (keyup)="0" #searchRef> 
+        </div>
+        <div class="col-md-3"></div>
+    </div> 
 
-<div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-12">
-    <table class="table">
-        <tr>
-            <th> Title </th>
-            <th> Name </th>
-            <th> Category </th>
-            <th> Description </th>
-        </tr>
-        
-        <tr *ngFor="let ad of allAds|contains:searchRef.value">
-            <td>{{ad.title}}</td>
-            <td>{{ad.name}}</td>
-            <td>{{ad.category}}</td>
-            <td>{{ad.description}}</td>
-            <td (click)="delAdv(ad)">Delete</td>
-        </tr>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th> Title </th>
+                <th> Name </th>
+                <th> Category </th>
+                <th> Description </th>
+                <th colspan="2"> Options </th>
+            </tr>
+            
+            <tr *ngFor="let ad of allAds|contains:searchRef.value">
+                <td>{{ad.title}}</td>
+                <td>{{ad.name}}</td>
+                <td>{{ad.category}}</td>
+                <td>{{ad.description}}</td>
+                <td (click)="editAdv(ad)"><a href="#">Edit</a></td>
+                <td (click)="delAdv(ad)"><a href="#">Delete</a></td>
+            </tr>
 
-    </table>
+        </table>
+        </div>
+        <div class="col-md-2"></div>
     </div>
-    <div class="col-md-2"></div>
 </div>
