@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-12">
+    <table class="table">
+        <tr>
+            <th> Title </th>
+            <th> Name </th>
+            <th> Category </th>
+            <th> Description </th>
+        </tr>
+        <tr *ngFor="let ad of ads">
+            <td>{{ad.title}}</td>
+            <td>{{ad.name}}</td>
+            <td>{{ad.category}}</td>
+            <td>{{ad.description}}</td>
+        </tr>
+    </table>
+    </div>
+    <div class="col-md-2"></div>
+</div>
