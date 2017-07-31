@@ -1,0 +1,44 @@
+<div class="container">
+    <h3>{{title}}</h3>
+    <form [formGroup]="adForm" (ngSubmit)="onSubmit()" nonvalidate>
+
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Title</label>
+            <input type="text" placeholder="Title" name="title" class="form-control" formControlName="title">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Name</label>
+            <input type="text" name="name" placeholder="Name" class="form-control" formControlName="name">
+        </div>    
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Category</label>
+            <select class="form-control" name="category" formControlName="category">
+                <option *ngFor="let cat of categories">{{cat}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Description</label>
+            <input type="text" name="desc" placeholder="description here.." class="form-control" formControlName="description">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Price</label>
+            <input type="number" name="price" class="form-control" formControlName="price">
+        </div>
+    </div>    
+
+    <button type="submit"  class="btn btn-primary">Post Adv</button>
+    </form>
+</div>

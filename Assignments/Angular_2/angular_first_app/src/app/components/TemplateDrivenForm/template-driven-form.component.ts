@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Adv } from '../../classes/Adv/adv.class';
+// import { Adv } from '../../classes/Adv/adv.class';
 
 @Component({
     selector: 'template-driven-form',
@@ -8,5 +8,7 @@ import { Adv } from '../../classes/Adv/adv.class';
 
 export class TemplateDrivenFormComponent {    
     categories: string[] = ['Furniture', 'Hardware', 'Mobile'];
+
+    
 }
 
