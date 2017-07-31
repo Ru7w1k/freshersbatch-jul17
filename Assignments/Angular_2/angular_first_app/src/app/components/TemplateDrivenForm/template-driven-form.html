@@ -1,0 +1,64 @@
+<div class="container">
+    <h3>{{title}}</h3>
+    <form #adForm="ngForm" (ngSubmit)="onSubmit(adForm.value)" nonvalidate>
+
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Title</label>
+            <input type="text" placeholder="Title" name="title" required minlength="3" class="form-control" #titleRef #titleModelRef="ngModel" ngModel>
+        </div>
+        <div *ngIf="titleModelRef.errors && titleModelRef.touched" class="col-md-6 alert alert-danger">
+            <div [hidden]="!titleModelRef.errors.required">Please Enter Title</div>
+            <div [hidden]="!titleModelRef.errors.minlength">Title should contain more than three characters</div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Name</label>
+            <input type="text" name="name" placeholder="Name" required minlength="3" class="form-control" #nameRef #nameModelRef="ngModel" ngModel>
+        </div>
+        <div *ngIf="nameModelRef.errors && nameModelRef.touched" class="col-md-6 alert alert-danger">
+            <div [hidden]="!nameModelRef.errors.required">Please Enter Name</div>
+            <div [hidden]="!nameModelRef.errors.minlength">Name should contain more than three characters</div>
+        </div>        
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Category</label>
+            <select class="form-control" name="category" #categoryRef #categoryModelRef="ngModel" required ngModel>
+                <option *ngFor="let cat of categories">{{cat}}</option>
+            </select>
+        </div>
+        <div *ngIf="categoryModelRef.errors && categoryModelRef.touched" class="col-md-6 alert alert-danger">
+            <div [hidden]="!categoryModelRef.errors.required">Please Select Category</div>
+        </div> 
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Description</label>
+            <input type="text" name="desc" placeholder="description here.." class="form-control" required #descRef #descModelRef="ngModel" ngModel>
+        </div>
+        <div *ngIf="descModelRef.errors && descModelRef.touched" class="col-md-6 alert alert-danger">
+            <div [hidden]="!descModelRef.errors.required">Please Enter Description</div>
+        </div> 
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Price</label>
+            <input type="number" min="1" required name="price" class="form-control" #priceRef #priceModelRef="ngModel" ngModel>
+        </div>
+        <div *ngIf="priceModelRef.errors && priceModelRef.touched" class="col-md-3 alert alert-danger">
+            <div [hidden]="!priceModelRef.errors.required">Please Enter Price</div>
+        </div>
+        <div *ngIf="(priceRef.value < 1) && priceModelRef.touched && !priceModelRef.errors" class="col-md-3 alert alert-danger">
+            Please Enter Non-Zero Price
+        </div> 
+    </div>    
+
+    <button type="submit"  [disabled]="!adForm.form.valid || (priceRef.value < 1)" class="btn btn-primary">Post Adv</button>
+    </form>
+</div>

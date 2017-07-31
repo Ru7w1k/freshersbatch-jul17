@@ -3,9 +3,10 @@ import { Adv } from './classes/Adv/adv.class';
 
 @Component({
   selector: 'my-app',
-  template: `<advertisement-form (postAdEvent)="addAdv($event)"></advertisement-form>
-            <advertisement-table [allAds]="this.ads"></advertisement-table>
-            `,
+  template: `<template-driven-form></template-driven-form>`
+  // template: `<advertisement-form (postAdEvent)="addAdv($event)"></advertisement-form>
+  //           <advertisement-table [allAds]="this.ads"></advertisement-table>
+  //           `,
 })
 export class AppComponent  { 
   ads: Adv[] = [];
