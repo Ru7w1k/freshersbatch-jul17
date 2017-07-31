@@ -1,32 +1,31 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
-// import { Adv } from '../../classes/Adv/adv.class';
+import { AdvertisementService } from '../../services/AdvertisementService/advertisement.service'
+import { Adv } from '../../classes/Adv/adv.class';
 
 @Component({
     selector: 'form-builder',
     templateUrl: './form-builder.html',
     styles: [`input.ng-invalid {border-bottom: 2px solid red}    input.ng-valid {border-bottom: 2px solid green}
               select.ng-invalid {border-bottom: 2px solid red}   select.ng-valid {border-bottom: 2px solid green}`]
-
 })
 
 export class FormBuilderComponent {    
     categories: string[] = ['Furniture', 'Hardware', 'Mobile'];
     adForm : FormGroup;
 
-    constructor(private formBuilder : FormBuilder) {
+    constructor(private formBuilder : FormBuilder, private advertisementService: AdvertisementService) {
         this.adForm = this.formBuilder.group({ 
-            title: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-            name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-            category: new FormControl(null, [Validators.required]),
-            description: new FormControl(null, [Validators.required, Validators.minLength(10)]),
-            price: new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]{1}[0-9]*$/)])
+            title: [null, [Validators.required, Validators.minLength(3)]],
+            name: [null, [Validators.required, Validators.minLength(3)]],
+            category: [null, [Validators.required]],
+            description: [null, [Validators.required, Validators.minLength(10)]],
+            price: [null, [Validators.required, Validators.pattern(/^[1-9]{1}[0-9]*$/)]]
         }); 
     }
     
-
-
-    onSubmit() : void {
-        console.log('Form Submited');
+    onSubmit(val: any) : void {
+        // let adv = new Adv(title, name, category, desc, price);     
+        this.advertisementService.addAdv(new Adv(val.title, val.name, val.category, val.description, val.price));
     }
 }

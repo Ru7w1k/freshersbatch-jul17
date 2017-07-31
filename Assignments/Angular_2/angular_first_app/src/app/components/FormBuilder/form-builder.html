@@ -1,7 +1,6 @@
 <div class="container">
     <h3>{{title}}</h3>
-    <form [formGroup]="adForm" (ngSubmit)="onSubmit()" nonvalidate>
-
+    <form [formGroup]="adForm" (ngSubmit)="onSubmit(adForm.value)" nonvalidate>
     <div class="form-group row">
         <div class="col-md-3">
             <label>Title</label>
@@ -18,7 +17,7 @@
     <div class="form-group row">
         <div class="col-md-3">
             <label>Name</label>
-            <input type="text" name="name" placeholder="Name" class="form-control" formControlName="name">
+            <input type="text" name="name" placeholder="Name" class="form-control" formControlName="name" #nameRef>
         </div> 
         <div *ngIf="adForm.controls['name'].hasError('required') && adForm.controls['name'].touched"  class="col-md-3 alert alert-danger"> 
             Please Enter Name
@@ -31,7 +30,7 @@
     <div class="form-group row">
         <div class="col-md-3">
             <label>Category</label>
-            <select class="form-control" name="category" formControlName="category">
+            <select class="form-control" name="category" formControlName="category" #categoryRef>
                 <option *ngFor="let cat of categories">{{cat}}</option>
             </select>
         </div>
@@ -43,7 +42,7 @@
     <div class="form-group row">
         <div class="col-md-3">
             <label>Description</label>
-            <input type="text" name="desc" placeholder="description here.." class="form-control" formControlName="description">
+            <input type="text" name="desc" placeholder="description here.." class="form-control" formControlName="description" #descRef>
         </div>
         <div *ngIf="adForm.controls['description'].hasError('required') && adForm.controls['description'].touched"  class="col-md-3 alert alert-danger"> 
             Please Enter Descritption
@@ -56,7 +55,7 @@
     <div class="form-group row">
         <div class="col-md-3">
             <label>Price</label>
-            <input type="number" name="price" class="form-control" formControlName="price">
+            <input type="number" name="price" class="form-control" formControlName="price" #priceRef>
         </div>
         <div *ngIf="adForm.controls['price'].hasError('required') && adForm.controls['price'].touched"  class="col-md-3 alert alert-danger"> 
             Please Enter Price

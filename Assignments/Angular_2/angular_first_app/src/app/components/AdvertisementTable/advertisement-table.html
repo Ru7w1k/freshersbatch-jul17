@@ -5,6 +5,17 @@
             <input class="form-control" placeholder="Search Here.." type="text" (keyup)="0" #searchRef> 
         </div>
         <div class="col-md-3"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <input class="form-control" placeholder="Search By Name" type="text" #searchNameRef >         
+        </div>
+        <div class="col-md-3">
+            <input type="button" class="btn btn-primary" name="btnSearch" value="Search" (click)="searchByName(searchNameRef.value)">
+        </div>
+        <div class="col-md-3"></div>
     </div> 
 
     <div class="row">
@@ -16,6 +27,7 @@
                 <th> Name </th>
                 <th> Category </th>
                 <th> Description </th>
+                <th> Price </th>
                 <th colspan="2"> Options </th>
             </tr>
             
@@ -24,6 +36,7 @@
                 <td>{{ad.name}}</td>
                 <td>{{ad.category}}</td>
                 <td>{{ad.description}}</td>
+                <td>{{ad.price}}</td>
                 <td (click)="editAdv(ad)"><a href="#">Edit</a></td>
                 <td (click)="delAdv(ad)"><a href="#">Delete</a></td>
             </tr>

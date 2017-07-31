@@ -1,20 +1,28 @@
 import { Component } from '@angular/core';
 import { Adv } from '../../classes/Adv/adv.class';
+import { AdvertisementService } from '../../services/AdvertisementService/advertisement.service'
 
 @Component({
     selector: 'advertisement-table',
-    templateUrl: './advertisement-table.html',
-    inputs: ['allAds']
+    templateUrl: './advertisement-table.html'    
 })
 
 export class AdvertisementTableComponent {
     allAds: Adv[];
+    result: string;
+
+    constructor(private advertisementService: AdvertisementService ) {
+        this.allAds = advertisementService.getAllAds();
+    }
     
     delAdv(ad : Adv) : void {
-        for(let i = 0 ; i < this.allAds.length ; i++) {
-            if(this.allAds[i] === ad) {
-                this.allAds.splice(i,1);
-            }
+        this.advertisementService.delAdv(ad);
+    }
+
+    searchByName(name: string) : void {
+        let adv = this.advertisementService.getAdv(name);
+        if(adv != null) {
+            this.result = adv.toString();
         }
     }
 

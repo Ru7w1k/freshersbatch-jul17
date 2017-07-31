@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Adv } from '../../classes/Adv/adv.class';
+import { AdvertisementService} from '../../services/AdvertisementService/advertisement.service'
 
 @Component({
     selector: 'advertisement-form',
     templateUrl: './advertisement-form.html',
-    outputs: ['postAdEvent']
+    // outputs: ['postAdEvent']
 })
 export class AdvertisementFormComponent {
 
@@ -15,8 +16,13 @@ export class AdvertisementFormComponent {
 
     postAdEvent = new EventEmitter<Adv> ();
 
-    postAdv(title: string, name: string, category: string, desc: string) : void {
-        let adv = new Adv(title, name, category, desc);
-        this.postAdEvent.emit(adv);
+    constructor(private advertisementService : AdvertisementService) {
+        
+    }
+
+    postAdv(title: string, name: string, category: string, desc: string, price: number) : void {
+        this.advertisementService.addAdv(new Adv(title, name, category, desc, price))
+        // let adv = new Adv(title, name, category, desc);
+        // this.postAdEvent.emit(adv);
     }
 }

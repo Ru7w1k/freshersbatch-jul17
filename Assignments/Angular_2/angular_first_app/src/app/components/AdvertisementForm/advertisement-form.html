@@ -27,6 +27,13 @@
         </div>
     </div>
 
-    <button (click)="postAdv(titleRef.value, nameRef.value, categoryRef.value, descRef.value)" type="button" class="btn btn-primary">Post Adv</button>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Price</label>
+            <input type="text" name="price" class="form-control" #priceRef>
+        </div>
+    </div>
+
+    <button (click)="postAdv(titleRef.value, nameRef.value, categoryRef.value, descRef.value, priceRef.value)" type="button" class="btn btn-primary">Post Adv</button>
 
 </div>
