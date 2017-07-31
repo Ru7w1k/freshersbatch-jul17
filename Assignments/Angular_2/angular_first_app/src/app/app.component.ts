@@ -3,7 +3,7 @@ import { Adv } from './classes/Adv/adv.class';
 
 @Component({
   selector: 'my-app',
-  template: `<model-driven-form></model-driven-form>`
+   template: `<form-builder></form-builder>`
   // template: `<advertisement-form (postAdEvent)="addAdv($event)"></advertisement-form>
   //           <advertisement-table [allAds]="this.ads"></advertisement-table>
   //           `,

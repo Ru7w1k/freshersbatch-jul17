@@ -8,10 +8,11 @@ import { AdvertisementTableComponent } from './components/AdvertisementTable/adv
 import { ContainsPipe } from './pipes/contains/contains.pipe'
 import { TemplateDrivenFormComponent } from './components/TemplateDrivenForm/template-driven-form.component'
 import { ModelDrivenFormComponent } from './components/ModelDrivenForm/model-driven-form.component'
+import { FormBuilderComponent } from './components/FormBuilder/form-builder.component'
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule ],
-  declarations: [ AppComponent, AdvertisementFormComponent, AdvertisementTableComponent, ContainsPipe, TemplateDrivenFormComponent, ModelDrivenFormComponent],
+  declarations: [ AppComponent, AdvertisementFormComponent, AdvertisementTableComponent, ContainsPipe, TemplateDrivenFormComponent, ModelDrivenFormComponent, FormBuilderComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
