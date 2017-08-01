@@ -1,0 +1,295 @@
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body { 
+	height: 100%;
+	padding-top: 70px;
+	padding-bottom: 25px;
+	background-color: #f0f0f0;
+	margin: 0 0 100px;
+}
+
+.center {
+    text-align: center;
+}
+
+.panel-header-text {
+	font-family: 'Playfair Display', serif;
+	font-size: 28px;
+	letter-spacing: 2px;
+}
+
+.panel-body,
+.panel-footer-text {
+	font-family: 'Patua One', cursive;
+	font-size: 14px;
+}
+
+.panel-body p {
+	font-style: normal;
+}
+
+.mynav {
+	font-family: 'Patua One', cursive;
+}
+
+.dropdown-menu {
+	padding: 0px;
+}
+
+.list-group-item {
+	padding: 10px 5px;
+}
+
+.footer {
+	background-color:#000000;
+	color: white;
+	position: absolute;
+	padding: 15px;
+	left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.footer img {
+	background-color: white;
+	border: 1px solid white;
+}
+
+textarea {
+    resize: none;
+}
+
+.pagination>li>a, .pagination>li>span {
+	color: black;
+}
+
+.left-panel {
+	float:left;
+	width: 200px;
+  margin-top: 40px;
+	margin-left: 20px;
+	font-family: 'Nunito', sans-serif
+} 
+
+.left-panel>ul>li {
+	margin-bottom: 2px;
+	-webkit-transition: 0.5s; /* For Safari 3.1 to 6.0 */
+  transition: 0.5s;
+  transition-timing-function: ease-out;
+}
+
+.left-panel>ul>li:hover {
+	-moz-box-shadow: 0 0 5px 5px #b8a9c9;
+	-webkit-box-shadow: 0 0 5px 5px #b8a9c9;
+	box-shadow: 0px 0px 5px 5px #b8a9c9;
+}
+
+.carousel-inner {
+	min-height: 400px;
+	min-width: 400px;
+}
+
+.item img {
+  display: block;  
+	max-width: 400px;
+	max-height: 400px;
+  height: auto;
+  width: auto;
+  max-width: 400px;   
+}
+
+.ad-card img {
+	display: block;
+	max-width: 200px;
+	max-height: 200px;
+	width: auto;
+	height: auto;
+}
+
+.ad-card h3 .user {
+	color: darkblue;
+}
+
+.ad-card h3 {
+	clear: both;
+	font-size: 14px;
+	font-family: 'Nunito', sans-serif;
+}
+
+
+.ad-card {
+	margin: 0px;
+	padding: 0px 10px 0px 0px;
+	-webkit-transition: 0.5s; /* For Safari 3.1 to 6.0 */
+  transition: 0.5s;
+  transition-timing-function: ease-out;
+}
+
+.ad-post {
+	margin: 0px;
+	padding: 0px 25px 0px 0px;
+}
+
+.ad-card:hover {
+	-moz-box-shadow: 0 0 5px 5px #b8a9c9;
+	-webkit-box-shadow: 0 0 5px 5px #b8a9c9;
+	box-shadow: 0px 0px 5px 5px #b8a9c9;
+}
+
+.col-md-7 h1 {
+	font-family: 'Playfair Display', serif;
+	float: left;
+	font-size: 28px;
+	color : black;
+}
+
+.col-md-7 h3 .user {
+	color: darkblue;
+}
+
+.col-md-7 h3 {
+	clear: both;
+	font-size: 14px;
+	font-family: 'Nunito', sans-serif;
+}
+
+.col-md-8 h1 {
+	font-family: 'Playfair Display', serif;
+	float: left;
+	font-size: 28px;
+	color : black;
+}
+
+.col-md-7 h2 {
+	float: right;
+	font-size: 23px;
+	font-weight: bold;
+	color : black;
+	text-align: right;
+}
+
+.col-md-8 h2 {
+	float: right;
+	font-size: 23px;
+	font-weight: bold;
+	color : black;
+	text-align: right;
+}
+
+.col-md-7 p {
+	font-family: 'Nunito', sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	clear: both;
+	text-align: justify;
+}
+
+.col-md-8 p {
+	font-family: 'Nunito', sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	clear: both;
+	text-align: justify;
+}
+
+a,
+a:hover,
+a:active,
+a:visited,
+a:link {
+	text-decoration: none;
+	color: black;
+}
+
+.btn-group-horizontal > input {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+/* For Scroll Bars*/
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9); 
+}
+/* End Scroll Bars*/
+
+/* Bootstrap Carousel*/
+.carousel-indicators li {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 3px;
+    text-indent: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);    
+}
+.carousel-indicators .active {
+    width: 10px;
+    height: 10px;
+    margin: 3px;
+    background-color: #000000;
+    box-shadow: inset 1px 1px 1px 1px rgba(255,255,255,0.5);
+}
+/* End Carousel */
+
+/* Messanger */
+.messages {
+	margin: 5px;
+}
+
+.msgs {
+	margin: 10px;
+	height: 80%;
+}
+
+.msgs .my-msg {
+	padding: 5px;
+	clear: both;
+	float: right;
+	background-color: lightblue;
+	font-family: 'Nunito', sans-serif;
+	border-radius: 5px;
+	margin: 2px;	
+}
+
+.msgs .their-msg {
+	padding: 5px;
+	clear: both;
+	float: left;
+	background-color: lightgray;
+	font-family: 'Nunito', sans-serif;
+	border-radius: 5px;
+	margin: 2px;
+}
+
+.msg-area {
+	clear: both;
+	padding: 30px;
+}
+
+.msg-name {
+	text-align: center;
+	font-family: 'Nunito', sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+/* End Messanger*/
+

@@ -1,13 +1,25 @@
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import 'rxjs/add/operator/map';
+
 import { Adv } from '../../classes/Adv/adv.class';
 
 @Injectable()
 export class AdvertisementService {  
     
     ads: Adv[] = [];
+    url: string = 'http:// 192.168.3.242:9000';
+
+    constructor(private _http: Http) {
+
+    }
+
+    getAllAdsREST() {
+        return this._http.get(this.url + '/posts').map((response: Response)=>response.json())
+    }
 
     getAllAds()  {
-        console.log('getAllAds', this.ads);
+        // let observable = this._http.get(this.url).map((response: Response)=>response.json());
         return this.ads;
     }
 

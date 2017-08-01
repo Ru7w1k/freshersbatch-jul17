@@ -1,7 +1,8 @@
-import { NgModule }      from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router'; 
+import { HttpModule } from '@angular/http'
 
 import { AppComponent }  from './app.component';
 import { AdvertisementFormComponent } from './components/AdvertisementForm/advertisement-form.component'
@@ -13,11 +14,12 @@ import { FormBuilderComponent } from './components/FormBuilder/form-builder.comp
 import { HomeComponent } from './components/Home/home.component'
 import { EditAdvertisementComponent } from './components/EditAdvertisement/edit-advertisement.component'
 
+
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot([ 
-    {path: '', component: HomeComponent}, 
-    {path: 'edit/:id', component: EditAdvertisementComponent} 
-  ]) ],
+                  {path: '', component: HomeComponent}, 
+                  {path: 'edit/:id', component: EditAdvertisementComponent} 
+                ]), HttpModule ],
   declarations: [ AppComponent, AdvertisementFormComponent, AdvertisementTableComponent, ContainsPipe, TemplateDrivenFormComponent, ModelDrivenFormComponent, FormBuilderComponent, HomeComponent, EditAdvertisementComponent],
   bootstrap:    [ AppComponent ]
 })

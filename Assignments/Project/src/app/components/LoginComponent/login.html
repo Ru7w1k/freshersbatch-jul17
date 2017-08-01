@@ -1,0 +1,56 @@
+<div class="container-fluid">
+<div class="row">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
+		<div class="panel panel-default">
+			<div class="panel-heading panel-header-text">
+				LOGIN
+			</div>
+			<form [formGroup]="loginForm" (ngSubmit)="login(userNameRef.value, passwordRef.value)" nonvalidate>
+				<div class="panel-body">
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							<input type="text" class="form-control" name="uname" placeholder="Username" #userNameRef>
+                        </div>
+
+                        <div class="alert alert-danger panel-body center" *ngIf="loginForm.controls['name'].hasError('required') && loginForm.controls['name'].touched">
+                            Please Enter Username!
+                        </div>
+
+                        <div class="alert alert-danger panel-body center" *ngIf="loginForm.controls['name'].hasError('minlength') && loginForm.controls['name'].touched">
+                            Username must be 3 characters long!
+                        </div>
+
+                        <div class="alert alert-danger panel-body center" *ngIf="loginForm.controls['name'].hasError('maxlength') && loginForm.controls['name'].touched">
+                            Username cannot be greater that 10 characters!
+                        </div>                                                
+					</div>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+							<input type="password" class="form-control" name="passwd" placeholder="Password" #passwordRef>
+						</div>
+                    </div>
+				</div>
+				<div class="panel-footer panel-footer-text">
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-4"></div>
+							<div class="col-md-4 center">
+								<input type="submit" name="login" class="btn btn-default btn-md" value="Login">
+							</div>
+							<div class="col-md-4"></div>
+						</div>						
+					</div>
+				</div>
+			</form>
+        </div>
+        <!-- Warning and Error Panel -->
+        <div class="alert alert-danger panel-body center" [hidden]="isLoginSuccess">
+            Invalid Login Details!
+        </div>
+	</div>
+	<div class="col-md-4"></div>
+</div>
+</div>
