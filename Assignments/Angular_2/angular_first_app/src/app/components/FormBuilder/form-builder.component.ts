@@ -11,6 +11,7 @@ import { Adv } from '../../classes/Adv/adv.class';
 })
 
 export class FormBuilderComponent {    
+    id:number = 0;
     categories: string[] = ['Furniture', 'Hardware', 'Mobile'];
     adForm : FormGroup;
 
@@ -25,7 +26,9 @@ export class FormBuilderComponent {
     }
     
     onSubmit(val: any) : void {
-        // let adv = new Adv(title, name, category, desc, price);     
-        this.advertisementService.addAdv(new Adv(val.title, val.name, val.category, val.description, val.price));
+        this.id += 1;
+        let adv = new Adv(val.title, val.name, val.category, val.description, val.price, this.id);          
+        this.advertisementService.addAdv(adv);  
+        console.log('adding adv',adv);
     }
 }

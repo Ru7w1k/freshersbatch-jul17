@@ -1,0 +1,46 @@
+<div class="container">
+<h3>{{title}}</h3>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>ID</label>
+            <input disabled type="text" name="title" class="form-control" value={{ad.id}} #idRef>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Title</label>
+            <input type="text" name="title" class="form-control" value={{ad.title}} #titleRef>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" value={{ad.name}} #nameRef>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Category</label>
+            <select class="form-control" #categoryRef>
+                <option *ngFor="let cat of categories" [selected]="isSelect(cat)">{{cat}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Description</label>
+            <input type="text" name="desc" class="form-control" value={{ad.description}} #descRef>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Price</label>
+            <input type="text" name="price" class="form-control" value={{ad.price}} #priceRef>
+        </div>
+    </div>
+
+    <button (click)="updateAdv(titleRef.value, nameRef.value, categoryRef.value, descRef.value, priceRef.value, idRef.value)" type="button" class="btn btn-primary">Update</button>
+    <button (click)="cancel()" type="button" class="btn btn-danger">Cancel</button>
+
+</div>

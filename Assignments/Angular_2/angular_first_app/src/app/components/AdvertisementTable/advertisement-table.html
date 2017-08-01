@@ -7,7 +7,7 @@
         <div class="col-md-3"></div>
     </div>
 
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-3">
             <input class="form-control" placeholder="Search By Name" type="text" #searchNameRef >         
@@ -16,13 +16,14 @@
             <input type="button" class="btn btn-primary" name="btnSearch" value="Search" (click)="searchByName(searchNameRef.value)">
         </div>
         <div class="col-md-3"></div>
-    </div> 
+    </div>  -->
 
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-12">
         <table class="table">
             <tr>
+                <th> ID </th>
                 <th> Title </th>
                 <th> Name </th>
                 <th> Category </th>
@@ -32,13 +33,14 @@
             </tr>
             
             <tr *ngFor="let ad of allAds|contains:searchRef.value">
+                <td>{{ad.id}}</td>
                 <td>{{ad.title}}</td>
                 <td>{{ad.name}}</td>
                 <td>{{ad.category}}</td>
                 <td>{{ad.description}}</td>
                 <td>{{ad.price}}</td>
-                <td (click)="editAdv(ad)"><a href="#">Edit</a></td>
-                <td (click)="delAdv(ad)"><a href="#">Delete</a></td>
+                <td><button type="button" class="btn btn-primary" (click)="editAdv(ad)">Edit</button></td>
+                <td><button type="button" class="btn btn-danger" (click)="delAdv(ad)">Delete</button></td>
             </tr>
 
         </table>

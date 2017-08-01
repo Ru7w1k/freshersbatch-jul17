@@ -4,7 +4,7 @@ import { AdvertisementService } from './services/AdvertisementService/advertisem
 
 @Component({
   selector: 'my-app',
-  template: `<form-builder></form-builder> <advertisement-table></advertisement-table>`,
+  template: `<router-outlet></router-outlet>`,
   providers: [AdvertisementService]
   // template: `<advertisement-form (postAdEvent)="addAdv($event)"></advertisement-form>
   //           <advertisement-table [allAds]="this.ads"></advertisement-table>

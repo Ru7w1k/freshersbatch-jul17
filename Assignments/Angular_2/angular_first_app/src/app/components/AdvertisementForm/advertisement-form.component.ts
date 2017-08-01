@@ -10,6 +10,7 @@ import { AdvertisementService} from '../../services/AdvertisementService/adverti
 })
 export class AdvertisementFormComponent {
 
+    id: number = 0;
     name: string = 'Rutwik';
     title: string = 'Post New Adv';
     categories: string[] = ['Furniture', 'Hardware', 'Mobile'];
@@ -21,7 +22,8 @@ export class AdvertisementFormComponent {
     }
 
     postAdv(title: string, name: string, category: string, desc: string, price: number) : void {
-        this.advertisementService.addAdv(new Adv(title, name, category, desc, price))
+        this.id += 1;
+        this.advertisementService.addAdv(new Adv(title, name, category, desc, price,this.id));
         // let adv = new Adv(title, name, category, desc);
         // this.postAdEvent.emit(adv);
     }

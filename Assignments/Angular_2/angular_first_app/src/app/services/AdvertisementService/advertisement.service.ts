@@ -11,24 +11,33 @@ export class AdvertisementService {
         return this.ads;
     }
 
-    getAdv(name: string) : Adv {
+    getAdv(id: number) : Adv {
+        let ans:Adv = null;
         this.ads.forEach(adv => {
-            if(adv.name == name) {
+            console.log('in foreach', adv.id, 'id', id);
+            if(adv.id == id) {
                 console.log('return', adv);
-                return adv;
+                ans = adv;
             }            
         });
-        return null;
+        return ans;
     }
 
     addAdv(adv: Adv) : void {        
         this.ads.push(adv);
         console.log('AddAdv', adv);
+        console.log('All Ads', this.ads);
     }
 
-    // updateAdv() {
-
-    // }
+    updateAdv(adv: Adv) : void {
+        for(let i = 0 ; i < this.ads.length ; i++) {
+            if(this.ads[i].id == adv.id) {
+                this.ads[i] = adv;
+                console.log('updated');
+                break;
+            }
+        }
+    }
 
     delAdv(adv: Adv) : void {
         for(let i = 0 ; i < this.ads.length ; i++) {
