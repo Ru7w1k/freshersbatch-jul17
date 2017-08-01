@@ -7,17 +7,17 @@ import { UserService } from '../../services/UserService/user.service'
 @Component({
     selector: 'login',
     templateUrl: './login.html',
-    styles: [`input.ng-invalid {border-bottom: 2px solid red}  input.ng-valid {border-bottom: 2px solid green`]
+    styles: [`input.ng-invalid {border-left: 3px solid red}  input.ng-valid {border-left: 3px solid green`]
 })
 export class LoginComponent {
 
-    isLoginSuccess: boolean = false;
+    isLoginSuccess: boolean = true;
     loginForm: FormGroup;
 
     constructor(private formBuilder : FormBuilder, private userService: UserService, private router:Router) {
         this.loginForm = this.formBuilder.group({ 
             name: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
-            password: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]]
+            password: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(15)]]
         }); 
     }
 
@@ -33,7 +33,9 @@ export class LoginComponent {
             }
         });
 
-
+        if(!this.userService.isLoggedIn().status) {
+            this.isLoginSuccess = false;
+        }
     }
     
 }
