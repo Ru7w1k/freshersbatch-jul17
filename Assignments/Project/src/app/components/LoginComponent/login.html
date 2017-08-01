@@ -12,7 +12,7 @@
 						<div class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 							<input type="text" class="form-control" name="uname" placeholder="Username" #userNameRef>
-                        </div>
+                        </div>        
 
                         <div class="alert alert-danger panel-body center" *ngIf="loginForm.controls['name'].hasError('required') && loginForm.controls['name'].touched">
                             Please Enter Username!
@@ -38,7 +38,7 @@
 						<div class="row">
 							<div class="col-md-4"></div>
 							<div class="col-md-4 center">
-								<input type="submit" name="login" class="btn btn-default btn-md" value="Login">
+								<input type="submit" [disabled]="!loginForm.valid" name="login" class="btn btn-default btn-md" value="Login">
 							</div>
 							<div class="col-md-4"></div>
 						</div>						
