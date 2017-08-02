@@ -18,6 +18,7 @@ import { AdvertisementComponent } from './components/AdvertisementComponent/adve
                   {path: 'adv/:id', component: AdvertisementComponent},
                   {path: 'login', component: LoginComponent},
                   {path: 'signup', component: SignUpComponent},
+                  {path: 'profile', component: MyProfileComponent}
                   // {path: 'edituser/:username', component: EditProfileComponent},
                   // {path: 'myads/', component: MyAdvertisementsComponent},
                   // {path: 'editadv/:id', component: EditAdvertisementComponent},
