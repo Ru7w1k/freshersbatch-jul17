@@ -16,17 +16,23 @@ export class AppComponent  {
   categories: string[] = [];
 
   constructor(private advertisementService:AdvertisementService, private userService:UserService, private router:Router) {
-    let user = userService.isLoggedIn();
-    this.loggedIn = user.status;
-    if(this.loggedIn) {
-      this.username = user.username;
-    }
+    this.updateLoginStatus();
 
     this.advertisementService.getCategories().subscribe((res) => 
       res.data.itemList.forEach((element: any) => {
         this.categories.push(element.name)
       })    
     );
+  }
+
+  updateLoginStatus() {
+    console.log('update Login Status', status)
+    let user = this.userService.isLoggedIn();
+    this.loggedIn = user.status;
+    if(this.loggedIn) {
+      this.username = user.username;
+    }
+
   }
 
   selectCategory(category: string) : void {

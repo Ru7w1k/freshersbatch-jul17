@@ -22,6 +22,7 @@ export class UserService {
     }
 
     login(username: string, password: string) {
+        console.log('service login', username);
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let options = new RequestOptions({headers: headers });
@@ -33,8 +34,12 @@ export class UserService {
 
     }
 
-    register() {
-
+    register(user: object) {
+        console.log('service register', user);
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let options = new RequestOptions({headers: headers });
+        return this._http.post(this.url + "/register", user, options).map((response: Response)=>response.json());
     }
 
     user() {

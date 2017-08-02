@@ -6,48 +6,48 @@
 			<div class="panel-heading panel-header-text">
 				SIGN UP
 			</div>
-			<form>
+			<form [formGroup]="signupForm" nonvalidate>
 				<div class="panel-body">
 					<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-							<input type="text" class="form-control" name="fname" placeholder="First Name">
+							<input type="text" class="form-control" name="fname" placeholder="First Name" formControlName="firstName" #firstNameRef>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-							<input type="text" class="form-control" name="lname" placeholder="Last Name">
+							<input type="text" class="form-control" name="lname" placeholder="Last Name" formControlName="lastName" #lastNameRef>
 						</div>
 					</div>					
 					<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
-							<input type="text" class="form-control" name="uname" placeholder="Username">
+							<input type="text" class="form-control" name="uname" placeholder="Username" formControlName="username" #usernameRef>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-							<input type="password" class="form-control" name="passwd" placeholder="Password">
+							<input type="password" class="form-control" name="passwd" placeholder="Password" formControlName="password" #passwordRef>
 						</div>
 					</div>
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-							<input type="password" class="form-control" name="cpasswd" placeholder="Confirm Password">
+							<input type="password" class="form-control" name="cpasswd" placeholder="Confirm Password" formControlName="confirmPassword" #confirmPasswordRef>
 						</div>
-					</div>
+					</div> -->
 					<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-							<input type="email" class="form-control" name="cpasswd" placeholder="Email">
+							<input type="email" class="form-control" name="email" placeholder="Email" formControlName="email" #emailRef>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="input-group">
 							<span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-							<input type="text" class="form-control" name="cpasswd" placeholder="Mobile Number">
+							<input type="text" class="form-control" name="mobileno" placeholder="Mobile Number" formControlName="mobileNo" #mobileNoRef>
 						</div>
 					</div>					
 				</div>
@@ -56,7 +56,7 @@
 						<div class="row">
 							<div class="col-md-4"></div>
 							<div class="col-md-4 center">
-								<input type="submit" name="signup" class="btn btn-default btn-md" value="Sign Up">
+								<input type="submit" [disabled]="!signupForm.valid" (click)="signUp(firstNameRef.value, lastNameRef.value, usernameRef.value, passwordRef.value, emailRef.value, mobileNoRef.value)" name="signup" class="btn btn-default btn-md" value="Sign Up">
 							</div>
 							<div class="col-md-4"></div>
 						</div>						
@@ -65,6 +65,101 @@
 			</form>
 		</div>
 	</div>
-	<div class="col-md-4"></div>
+	<div class="col-md-4">
+        <!-- Warning and Error Panel -->
+        <div class="alert alert-danger panel-body center" [hidden]="error">
+            User Registration Failed!
+		</div>
+		
+		<div class="alert alert-success panel-body center" [hidden]="success">
+            User Registration Successful!
+        </div>
+
+		<!-- First Name  -->
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="signupForm.controls['firstName'].hasError('required') && signupForm.controls['firstName'].touched">
+            Please Enter First Name!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="signupForm.controls['firstName'].hasError('minlength') && signupForm.controls['firstName'].touched">
+            First Name must be 3 characters long!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="signupForm.controls['firstName'].hasError('maxlength') && signupForm.controls['firstName'].touched">
+            First Name cannot be greater that 10 characters!
+        </div>    
+		
+		<!-- Last Name  -->
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="signupForm.controls['lastName'].hasError('required') && signupForm.controls['lastName'].touched">
+            Please Enter Last Name!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="signupForm.controls['lastName'].hasError('minlength') && signupForm.controls['lastName'].touched">
+            Last Name must be 3 characters long!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="signupForm.controls['lastName'].hasError('maxlength') && signupForm.controls['lastName'].touched">
+            Last Name cannot be greater that 10 characters!
+        </div>      
+
+		<!-- Username  -->
+		<div class="alert alert-danger panel-body center" 
+        *ngIf="signupForm.controls['username'].hasError('required') && signupForm.controls['username'].touched">
+            Please Enter Username!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="signupForm.controls['username'].hasError('minlength') && signupForm.controls['username'].touched">
+            Username must be 3 characters long!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="signupForm.controls['username'].hasError('maxlength') && signupForm.controls['username'].touched">
+            Username cannot be greater that 10 characters!
+		</div>   
+		
+		<!-- Password  -->
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="signupForm.controls['password'].hasError('required') && signupForm.controls['password'].touched">
+            Please Enter Password!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="signupForm.controls['password'].hasError('minlength') && signupForm.controls['password'].touched">
+            Password must be 5 characters long!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="signupForm.controls['password'].hasError('maxlength') && signupForm.controls['password'].touched">
+            Password cannot be greater that 15 characters!
+		</div>   
+		
+		<!-- Email  -->
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="signupForm.controls['email'].hasError('required') && signupForm.controls['email'].touched">
+            Please Enter Email!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="signupForm.controls['email'].hasError('pattern') && signupForm.controls['email'].touched">
+            Incorrect Email format!
+        </div>		
+
+		<!-- MobileNo  -->
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="signupForm.controls['mobileNo'].hasError('required') && signupForm.controls['mobileNo'].touched">
+            Please Enter  MobileNo!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="signupForm.controls['mobileNo'].hasError('pattern') && signupForm.controls['mobileNo'].touched">
+            Incorrect Mobile Number!
+        </div>		
+	</div>
 </div>
 </div>
