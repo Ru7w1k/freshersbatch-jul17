@@ -22,7 +22,7 @@ export class SignUpComponent {
             username: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
             password: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
             // confirmPassword: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(15)]],
-            email: [null, [Validators.required, Validators.pattern(/^[a-zA-z][a-zA-z0-9]*[@][a-zA-z][a-zA-z0-9]*[/.][a-zA-z]*$/)]],
+            email: [null, [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-z0-9]*[@][a-zA-Z][a-zA-Z0-9]*[/.][a-zA-Z]*$/)]],
             mobileNo: [null, [Validators.required, Validators.pattern(/^[1-9]{1}[0-9]{9}$/)]]
         }); 
     }

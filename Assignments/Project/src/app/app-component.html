@@ -6,51 +6,41 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>                        
         </button>
-        <a class="navbar-brand" href="home.html"> Adv</a>
+        <a class="navbar-brand"> Adv</a>
         </div>
         <div class="collapse navbar-collapse" id="mynavbar">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="home.html"> Home</a></li>
-            
-            <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories
-            <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li (click)="selectCategory(category)" *ngFor="let category of categories">
-                    <a>{{category}}</a>
-                </li>	      		
-            </ul>
-            </li>
-            
-            <li><a href="postadv.html"> Post Ad</a></li>
+            <li (click)="this.router.navigate([''])"><a> Home</a></li>
+                      
+            <li (click)="checkPost()"><a> Post Ad</a></li>
             <li>
             <form class="navbar-form navbar-left">
             <div class="input-group ">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="form-control" placeholder="Search" #searchRef>
                 <div class="input-group-btn">
-                <button class="btn btn-default" type="submit">
+                 <button class="btn btn-default" type="button" (click)="search(searchRef.value)">
                     <i class="glyphicon glyphicon-search"></i>
-                </button>
+                </button> 
                 </div>
             </div>
             </form>
             </li>
         </ul>    
 
-        <ul class="nav navbar-nav navbar-right" [hidden]="loggedIn">            
+        <ul class="nav navbar-nav navbar-right" *ngIf="!loggedIn">            
             <li (click)="this.router.navigate(['signup'])"><a ><span class="glyphicon glyphicon-user"></span>  Sign Up</a></li>
             <li (click)="this.router.navigate(['login'])"><a ><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
         </ul>
 
-        <ul class="nav navbar-nav navbar-right" [hidden]="!loggedIn">
+        <ul class="nav navbar-nav navbar-right" *ngIf="loggedIn">
             <li class="dropdown">
-	      	<a class="dropdown-toggle" data-toggle="dropdown" href="#">User One
+	      	<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{username}}
 	      	<span class="caret"></span></a>
 	      	<ul class="dropdown-menu list-group">
-	      		<li class="list-group-item"><a href="profile.html"><span class="glyphicon glyphicon-user"> </span> Profile</a></li>
-	      		<li class="list-group-item"><a href="messages.html"><span class="glyphicon glyphicon-inbox"> </span> Messages</a></li>
-	      		<li class="list-group-item"><a href="myads.html"><span class="glyphicon glyphicon-th-list"> </span> My Ads</a></li>	      		
-	      		<li class="list-group-item"><a href="login.html"><span class="glyphicon glyphicon-log-out"> </span> Logout</a></li>  		
+	      		<li class="list-group-item" (click)="this.router.navigate(['profile'])"><a><span class="glyphicon glyphicon-user"> </span> Profile</a></li>
+	      		<li class="list-group-item" (click)="this.router.navigate(['signup'])"><a><span class="glyphicon glyphicon-inbox"> </span> Messages</a></li>
+	      		<li class="list-group-item" (click)="this.router.navigate(['myads'])"><a><span class="glyphicon glyphicon-th-list"> </span> My Ads</a></li>	      		
+	      		<li class="list-group-item" (click)="logout()"><a><span class="glyphicon glyphicon-log-out"> </span> Logout</a></li>  		
 	      	</ul>
 	      </li>
         </ul>

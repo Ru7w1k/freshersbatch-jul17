@@ -31,7 +31,11 @@ export class UserService {
     }
 
     logout() {
-
+        console.log('service logout', this.userName);
+        let headers = new Headers();
+        headers.append('auth-token', this.authToken);
+        let options = new RequestOptions({headers: headers });
+        return this._http.delete(this.url + "/logout",options);
     }
 
     register(user: object) {

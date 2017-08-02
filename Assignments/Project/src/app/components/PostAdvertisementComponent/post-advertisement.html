@@ -1,0 +1,95 @@
+<div class="container-fluid">
+<div class="row">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
+
+    <div class="panel panel-default">
+        <div class="panel-heading panel-header-text">
+            POST AD
+        </div>
+        <form [formGroup]="postForm" (ngSubmit)="post(titleRef.value, categoryRef.value, descriptionRef.value)" nonvalidate class="form-horizontal">
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="title">Title :</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" placeholder="laptop sale" title="title" #titleRef  formControlName="title">
+                </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4" for="category">Category :</label>
+                <div class="col-sm-8">
+                    <select class="form-control" #categoryRef  formControlName="category" title="category">
+                        <option *ngFor="let category of categories">{{category}}</option>
+                    </select>
+                </div>
+                </div>
+                <div class="form-group">
+                <label class="control-label col-sm-4" for="desc">Description :</label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" placeholder="details about product" title="desc" rows="5" #descriptionRef  formControlName="description"></textarea>
+                </div>
+                </div>
+                <div class="form-group">
+                <label class="control-label col-sm-4" for="photos">Photos :</label>
+            <div class="col-sm-8">
+                <input type="file" class="form-control" id="photos" placeholder="drop images here to upload" title="photos" accept="image/*" multiple="true">
+            </div>
+                </div>
+            </div>
+            <div class="panel-footer panel-footer-text">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4 center">
+                            <input type="submit" [disabled]="!postForm.valid" title="signup" class="btn btn-primary btn-md" value="Post Ad">
+                        </div>
+                        <div class="col-md-4"></div>
+                    </div>						
+                </div>
+            </div>
+        </form>
+    </div>
+	</div>
+
+    <div class="col-md-4">
+        <!-- Warning and Error Panel -->
+        <div class="alert alert-success panel-body center" *ngIf="isPosted">
+            Your Advertisement ({{advId}}) is posted successfully!
+        </div>
+
+        <div class="alert alert-danger panel-body center" *ngIf="isError">
+            Error Posting Your Advertisement!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="postForm.controls['title'].hasError('required') && postForm.controls['title'].touched">
+            Please Enter Title!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="postForm.controls['title'].hasError('minlength') && postForm.controls['title'].touched">
+            Title must be 3 characters long!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="postForm.controls['title'].hasError('maxlength') && postForm.controls['title'].touched">
+            Title cannot be greater that 20 characters!
+        </div>     
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="postForm.controls['category'].hasError('required') && postForm.controls['category'].touched">
+            Please Select Category!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="postForm.controls['description'].hasError('required') && postForm.controls['description'].touched">
+            Please Enter Description!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="postForm.controls['description'].hasError('minlength') && postForm.controls['description'].touched">
+            Description cannot be less that 10 characters!
+        </div>         
+    </div>
+</div>
+</div>
