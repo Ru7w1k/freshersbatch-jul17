@@ -38,7 +38,7 @@ export class UserService {
         return this._http.delete(this.url + "/logout",options);
     }
 
-    register(user: object) {
+    register(user: Object) {
         console.log('service register', user);
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');

@@ -38,7 +38,7 @@ export class AdvertisementService {
 
     }
 
-    postAdvertisement(adv: object, authToken: string) {
+    postAdvertisement(adv: Object, authToken: string) {
         console.log('post adv', adv);
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');

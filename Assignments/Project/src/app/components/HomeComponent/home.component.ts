@@ -11,7 +11,7 @@ export class HomeComponent {
 
     msg:string = '';
     categories: string[] = [];
-    advertisements: object[] = [];
+    advertisements: Object[] = [];
 
     constructor(private advertisementService:AdvertisementService, private router: Router, private activatedRoute: ActivatedRoute) {
         advertisementService.getCategories().subscribe((res) =>
@@ -26,7 +26,7 @@ export class HomeComponent {
         if(search != null && search != undefined && search != '') {
             console.log('if', search)
             advertisementService.searchAdvertisements(search).subscribe((res) => {
-                res.data.advertiseList.forEach((ad: object) => {
+                res.data.advertiseList.forEach((ad: Object) => {
                     this.advertisements.push(ad);
                 })            
             })            
@@ -34,7 +34,7 @@ export class HomeComponent {
         else {
             console.log('else')
             advertisementService.getAllAdvertisements().subscribe((res) => {
-                res.data.advertiseList.forEach((ad: object) => {
+                res.data.advertiseList.forEach((ad: Object) => {
                     this.advertisements.push(ad);
                 })            
             })            
@@ -59,7 +59,7 @@ export class HomeComponent {
         console.log('select category')
         this.advertisements = [];
         this.advertisementService.searchAdvertisementByCategory(category).subscribe((res) => {
-            res.data.advertiseList.forEach((ad: object) => {
+            res.data.advertiseList.forEach((ad: Object) => {
                 this.advertisements.push(ad);
             })
         })

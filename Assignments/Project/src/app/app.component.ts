@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { OnChanges } from '@angular/core';
 
 import { AdvertisementService } from './services/AdvertisementService/advertisement.service'
 import { UserService } from './services/UserService/user.service'
@@ -33,6 +34,11 @@ export class AppComponent  {
         this.categories.push(element.name)
       })    
     );
+  }
+
+  ngOnChange() {
+    this.loggedIn = this.userService.isLoggedIn().status;
+    this.username = this.userService.isLoggedIn().username;
   }
 
   search(text: string) {

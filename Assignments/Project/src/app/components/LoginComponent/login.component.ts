@@ -25,6 +25,7 @@ export class LoginComponent {
     }
 
     login(username: string, password: string) {
+        
         console.log('Login Clicked')
         this.userService.login(username, password).subscribe((res) => {
             if(res.data['auth-token'] != null) {           

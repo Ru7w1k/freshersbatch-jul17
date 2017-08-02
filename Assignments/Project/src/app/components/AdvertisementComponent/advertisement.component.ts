@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AdvertisementComponent {
 
-    adv: object = {};
+    adv: Object = {};
 
     constructor(private advertisementService:AdvertisementService, private activatedRoute: ActivatedRoute) {
         let postId = this.activatedRoute.snapshot.params['id'];
