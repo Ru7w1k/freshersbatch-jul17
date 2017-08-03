@@ -1,0 +1,28 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+            <!-- Products -->
+            <div class="panel panel-default" *ngFor="let adv of advertisements">
+                <div class="panel-body ad-card">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="https://dummyimage.com/200">
+                        </div>
+                        <div class="col-md-9">
+                            <h1>{{adv.title}}</h1>
+                            <h3>posted by <span class="user">{{adv.userId}}</span> on <span class="date">{{adv.createdDate | date}}</span></h3>
+                            <p>{{adv.description}}</p>
+                            <input type="button" name="view" value="View" class="btn btn-default" (click)="this.router.navigate(['adv', adv.id])" >
+                            <input type="button" name="edit" [value]="actions[0]" class="btn btn-primary" (click)="this.router.navigate(['editadv', adv.id])" >							
+                            <input type="button" name="delete" [value]="actions[1]" class="btn btn-danger" (click)="deleteAdv(adv.id)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+		

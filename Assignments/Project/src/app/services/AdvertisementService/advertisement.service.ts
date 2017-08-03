@@ -34,8 +34,13 @@ export class AdvertisementService {
         return this._http.get(this.url + "/posts/search/text?searchText=" + text, options).map((response: Response)=>response.json()); 
     }
 
-    getAdvertisementActions() {
-
+    getAdvertisementActions(authToken: string) {
+        console.log('get actions adv');
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('auth-token', authToken);
+        let options = new RequestOptions({headers: headers });
+        return this._http.get(this.url + "/actions", options).map((response: Response)=>response.json()); 
     }
 
     postAdvertisement(adv: Object, authToken: string) {
@@ -47,16 +52,30 @@ export class AdvertisementService {
         return this._http.post(this.url + "/postAd", adv, options).map((response: Response)=>response.json()); 
     }
 
-    updateAdvertisement() {
+    updateAdvertisement(adv: Object, authToken: string) {
+        console.log('update adv', adv, authToken);
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('auth-token', authToken);
+        let options = new RequestOptions({headers: headers});
+        return this._http.put(this.url + "/postAd", adv, options).map((response: Response)=>response.json()); 
 
     }
 
-    deleteAdvertisement() {
-
+    deleteAdvertisement(postId: string, authToken: string) {
+        console.log('delete adv', postId, authToken);
+        let headers = new Headers();
+        headers.append('auth-token', authToken);
+        let options = new RequestOptions({headers: headers});
+        return this._http.delete(this.url + "/post?postId=" + postId, options).map((response: Response)=>response.json());
     }
 
-    getUserAdvertisements() {
-
+    getUserAdvertisements(authToken: string) {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('auth-token', authToken);
+        let options = new RequestOptions({headers: headers });
+        return this._http.get(this.url + "/posts", options).map((response: Response)=>response.json());
     }
 
     getAdvertisement(postId: string) {
@@ -66,6 +85,8 @@ export class AdvertisementService {
         let options = new RequestOptions({headers: headers });
         return this._http.get(this.url + "/post?postId=" + postId, options).map((response: Response)=>response.json());
     }
+
+
 
     getPhoto() {
 

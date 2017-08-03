@@ -7,35 +7,32 @@
 			<div class="panel-heading panel-header-text">
 				EDIT AD
 			</div>
-			<form class="form-horizontal">
+			<form [formGroup]="editAdvForm" (ngSubmit)="editAdv(titleRef.value, categoryRef.value, descriptionRef.value)" nonvalidate class="form-horizontal">
 				<div class="panel-body">
 					<div class="form-group">
 						<label class="control-label col-sm-4" for="adid">ID :</label>
 			      	<div class="col-sm-8">
-			        	<input type="text" class="form-control" id="adid" placeholder="ID" name="adid" disabled="true">
+			        	<input type="text" class="form-control" id="adid" placeholder="ID" name="adid" disabled="true" [value]="adv.postId" #idRef>
 			      	</div>
 				  </div>				
 					<div class="form-group">
 						<label class="control-label col-sm-4" for="title">Title :</label>
 			      	<div class="col-sm-8">
-			        	<input type="text" class="form-control" id="title" placeholder="laptop sale" name="title">
+			        	<input type="text" class="form-control" id="title" placeholder="laptop sale" name="title" [value]="adv.title" #titleRef formControlName="title">
 			      	</div>
 				  </div>
 				  <div class="form-group">
 						<label class="control-label col-sm-4" for="category">Category :</label>
 			      	<div class="col-sm-8">
-			        	<select class="form-control" id="category">
-			        		<option>Category 1</option>
-			        		<option>Category 2</option>
-			        		<option>Category 3</option>
-			        		<option>Category 4</option>
+			        	<select class="form-control" id="category" [value]="adv.category" #categoryRef formControlName="category">
+			        		<option *ngFor="let category of categories">{{category}}</option>
 			        	</select>
 			      	</div>
 				  </div>
 				  <div class="form-group">
 				  <label class="control-label col-sm-4" for="desc">Description :</label>
 			      	<div class="col-sm-8">
-			        	<textarea class="form-control" id="desc" placeholder="details about product" name="desc" rows="5"></textarea>
+			        	<textarea class="form-control" id="desc" placeholder="details about product" name="desc" rows="5" [value]="adv.description" #descriptionRef formControlName="description"></textarea>
 			      	</div>
 				  </div>
 				  <div class="form-group">
@@ -46,19 +43,56 @@
 					</div>
 				</div>
 				<div class="panel-footer panel-footer-text">
-					<div class="form-group">
-						<center>
+					<div class="form-group center">
 						<div class="btn-group btn-group-horizontal">
-							<input type="submit" name="update" class="btn btn-primary btn-md" value="Update">
-							<input type="button" name="reset" class="btn btn-default btn-md" onclick="location.href = 'myads.html';" value="Cancel">
+							<input type="submit" name="update" [disabled]="!editAdvForm.valid" class="btn btn-primary btn-md" value="Update">
+							<input type="button" name="reset" class="btn btn-default btn-md" (click)="this.router.navigate(['myads'])"  value="Cancel">
 						</div>
-						</center>
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
 
-	<div class="col-md-4"></div>
+	<div class="col-md-4">
+        <!-- Warning and Error Panel -->
+        <div class="alert alert-success panel-body center" *ngIf="isUpdated">
+            Your Advertisement ({{adv.postId}}) is updated successfully!
+        </div>
+
+        <div class="alert alert-danger panel-body center" *ngIf="isError">
+            Error Updating Your Advertisement!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="editAdvForm.controls['title'].hasError('required') && editAdvForm.controls['title'].dirty">
+            Please Enter Title!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="editAdvForm.controls['title'].hasError('minlength') && editAdvForm.controls['title'].dirty">
+            Title must be 3 characters long!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="editAdvForm.controls['title'].hasError('maxlength') && editAdvForm.controls['title'].dirty">
+            Title cannot be greater that 20 characters!
+        </div>     
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="editAdvForm.controls['category'].hasError('required') && editAdvForm.controls['category'].dirty">
+            Please Select Category!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="editAdvForm.controls['description'].hasError('required') && editAdvForm.controls['description'].dirty">
+            Please Enter Description!
+        </div>
+
+        <div class="alert alert-danger panel-body center" 
+        *ngIf="editAdvForm.controls['description'].hasError('minlength') && editAdvForm.controls['description'].dirty">
+            Description cannot be less that 10 characters!
+        </div> 	
+	</div>
 </div>
 </div>
