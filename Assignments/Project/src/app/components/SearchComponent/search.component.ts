@@ -9,10 +9,11 @@ import { AdvertisementService } from '../../services/AdvertisementService/advert
 })
 export class SearchComponent {
 
-    msg:string = '';
+    msg:boolean = false;
     categories: string[] = [];
     advertisements: Object[] = [];
     search: string = '';
+    selectedCategory: string = '';
 
     constructor(private advertisementService:AdvertisementService, private router: Router, private activatedRoute: ActivatedRoute) {
         advertisementService.getCategories().subscribe((res) =>
@@ -29,11 +30,6 @@ export class SearchComponent {
             this.search = val.search;
             this.updateSearch();
         })  
-
-        // this.search = this.activatedRoute.snapshot.params['search'];
-        // console.log('search Text', this.search)
-        // this.updateSearch();
-
         
         console.log(this.advertisements)
     }
@@ -58,22 +54,20 @@ export class SearchComponent {
             })            
         }
 
-        if(this.advertisements.length < 1) {
-            this.msg = "No Ads Found!";
-        }
-        else {
-            this.msg = '';
-        }
     }
 
     selectCategory(category: string) : void {
-        console.log('select category')
+        console.log('select category');
         this.advertisements = [];
+
         this.advertisementService.searchAdvertisementByCategory(category).subscribe((res) => {
             res.data.advertiseList.forEach((ad: Object) => {
                 this.advertisements.push(ad);
             })
         })
+        
+        
+        this.selectedCategory = category;
     }
 
 }

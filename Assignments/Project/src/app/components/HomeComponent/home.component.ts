@@ -13,6 +13,7 @@ export class HomeComponent {
     categories: string[] = [];
     advertisements: Object[] = [];
     search: string = '';
+    selectedCategory: string = '';
 
     constructor(private advertisementService:AdvertisementService, private router: Router, private activatedRoute: ActivatedRoute) {
         advertisementService.getCategories().subscribe((res) =>
@@ -70,6 +71,8 @@ export class HomeComponent {
                 this.advertisements.push(ad);
             })
         })
+        this.selectedCategory = category;
+        console.log('selected CAtegory', this.selectedCategory);
     }
 
 }

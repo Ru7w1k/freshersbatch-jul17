@@ -65,32 +65,32 @@
         </div>
 
         <div class="alert alert-danger panel-body center" 
-        *ngIf="editAdvForm.controls['title'].hasError('required') && editAdvForm.controls['title'].dirty">
+        *ngIf="editAdvForm.controls['title'].hasError('required') && editAdvForm.controls['title'].touched">
             Please Enter Title!
         </div>
 
         <div class="alert alert-danger panel-body center" 
-        *ngIf="editAdvForm.controls['title'].hasError('minlength') && editAdvForm.controls['title'].dirty">
+        *ngIf="editAdvForm.controls['title'].hasError('minlength') && editAdvForm.controls['title'].touched">
             Title must be 3 characters long!
         </div>
 
         <div class="alert alert-danger panel-body center" 
-        *ngIf="editAdvForm.controls['title'].hasError('maxlength') && editAdvForm.controls['title'].dirty">
+        *ngIf="editAdvForm.controls['title'].hasError('maxlength') && editAdvForm.controls['title'].touched">
             Title cannot be greater that 20 characters!
         </div>     
 
         <div class="alert alert-danger panel-body center" 
-        *ngIf="editAdvForm.controls['category'].hasError('required') && editAdvForm.controls['category'].dirty">
+        *ngIf="editAdvForm.controls['category'].hasError('required') && editAdvForm.controls['category'].touched">
             Please Select Category!
         </div>
 
         <div class="alert alert-danger panel-body center" 
-        *ngIf="editAdvForm.controls['description'].hasError('required') && editAdvForm.controls['description'].dirty">
+        *ngIf="editAdvForm.controls['description'].hasError('required') && editAdvForm.controls['description'].touched">
             Please Enter Description!
         </div>
 
         <div class="alert alert-danger panel-body center" 
-        *ngIf="editAdvForm.controls['description'].hasError('minlength') && editAdvForm.controls['description'].dirty">
+        *ngIf="editAdvForm.controls['description'].hasError('minlength') && editAdvForm.controls['description'].touched">
             Description cannot be less that 10 characters!
         </div> 	
 	</div>

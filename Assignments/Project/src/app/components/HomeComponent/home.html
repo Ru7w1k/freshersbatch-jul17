@@ -3,7 +3,7 @@
 		<!-- Left Panel -->
 		<div class="col-md-2 left-panel">
 			<ul type="none" class="list-group">
-				<li class="list-group-item" *ngFor="let category of categories" (click)="selectCategory(category)">{{category}}</li>
+				<li class="list-group-item" *ngFor="let category of categories" [ngClass]="{ 'active': category == selectedCategory }" (click)="selectCategory(category)">{{category}}</li>
 			</ul>	
 		</div>
 

@@ -1,3 +1,5 @@
+// from https://stackoverflow.com/questions/43063525/angular-2-passing-data-from-child-within-router-outlet-to-parent-component
+
 import { Injectable } from '@angular/core';
 import { Subject, BehaviorSubject } from "rxjs/Rx";
 

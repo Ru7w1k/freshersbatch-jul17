@@ -34,6 +34,15 @@ export class AdvertisementService {
         return this._http.get(this.url + "/posts/search/text?searchText=" + text, options).map((response: Response)=>response.json()); 
     }
 
+    searchAdvertisementsByCategoryAndText(text: string, category: string) {
+        console.log('search service by text and cat', text, category);
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let options = new RequestOptions({headers: headers });
+        return this._http.get(this.url + "/posts/search?category=" + category + "&searchText=" + text, options).map((response: Response)=>response.json()); 
+
+    }
+
     getAdvertisementActions(authToken: string) {
         console.log('get actions adv');
         let headers = new Headers();
@@ -76,6 +85,13 @@ export class AdvertisementService {
         headers.append('auth-token', authToken);
         let options = new RequestOptions({headers: headers });
         return this._http.get(this.url + "/posts", options).map((response: Response)=>response.json());
+    }
+
+    getAdvertisementByAuth(postId: string, authToken: string) {
+        let headers = new Headers();
+        headers.append('auth-token', authToken);
+        let options = new RequestOptions({headers: headers });
+        return this._http.get(this.url + "/post?postId=" + postId, options).map((response: Response)=>response.json());
     }
 
     getAdvertisement(postId: string) {
