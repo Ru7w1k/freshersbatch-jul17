@@ -46,8 +46,13 @@ export class UserService {
         return this._http.post(this.url + "/register", user, options).map((response: Response)=>response.json());
     }
 
-    user() {
-
+    userInfo() {
+        console.log('user service');
+        let headers = new Headers();
+        headers.append('auth-token', this.authToken);
+        let options = new RequestOptions({headers: headers });
+        console.log('userInfo', this.userName, this.authToken);
+        return this._http.get(this.url + "/user?userId=" + this.userName, options).map((response: Response)=>response.json());
     }
 
     
