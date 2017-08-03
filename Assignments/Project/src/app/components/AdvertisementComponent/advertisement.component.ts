@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 import { AdvertisementService } from '../../services/AdvertisementService/advertisement.service'
-import { ActivatedRoute } from '@angular/router';
+import { UserService } from '../../services/UserService/user.service'
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'adv',
@@ -11,7 +12,7 @@ export class AdvertisementComponent {
 
     adv: Object = {};
 
-    constructor(private advertisementService:AdvertisementService, private activatedRoute: ActivatedRoute) {
+    constructor(private advertisementService:AdvertisementService, private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) {
         let postId = this.activatedRoute.snapshot.params['id'];
         advertisementService.getAdvertisement(postId).subscribe(
             (response) => {
@@ -22,5 +23,21 @@ export class AdvertisementComponent {
 
         console.log('adv', this.adv)
     }
+
+    // sendMsg(msg: string) {
+    //     if(!this.userService.isLoggedIn().status) {
+    //         this.router.navigate(['login']);
+    //         return;
+    //     }
+
+
+    //     this.advertisementService.sendMessage(msg, this.adv.postId, this.userService.authToken).subscribe(
+    //         (response) => {
+    //             console.log('msg sent', response)
+    //         }
+    //     );
+
+    //     this.router.navigate(['adv/', this.adv.postId]);
+    // }
 
 }

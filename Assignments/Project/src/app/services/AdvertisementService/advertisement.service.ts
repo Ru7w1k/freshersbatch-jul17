@@ -103,9 +103,18 @@ export class AdvertisementService {
     searchAdvertisementByCategory(category: string) {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        headers.append('auth-token', '598145b18562a014399011c8');
         let options = new RequestOptions({headers: headers });
         return this._http.get(this.url + "/posts/search?category=" + category, options).map((response: Response)=>response.json());
+
+    }
+
+    sendMessage(msg: string, postId: string, authToken: string) {
+        let headers = new Headers();
+        let jsonReq = {message: msg, postId: postId};
+        headers.append('Content-Type', 'application/json');
+        headers.append('auth-token', authToken);
+        let options = new RequestOptions({headers: headers });
+        return this._http.post(this.url + "/message", jsonReq, options).map((response: Response)=>response.json());
 
     }
     

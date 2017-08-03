@@ -36,7 +36,7 @@ export class SearchComponent {
 
     updateSearch() {
         this.advertisements = [];
-        console.log('update Search')
+        
         if(this.search != null && this.search != undefined && this.search != '') {
             console.log('if', this.search)
             this.advertisementService.searchAdvertisements(this.search).subscribe((res) => {
@@ -51,8 +51,11 @@ export class SearchComponent {
                 res.data.advertiseList.forEach((ad: Object) => {
                     this.advertisements.push(ad);
                 })            
-            })            
+            })  
+            this.msg = false;          
         }
+
+        console.log('update Search', this.advertisements.length)
 
     }
 
@@ -64,8 +67,7 @@ export class SearchComponent {
             res.data.advertiseList.forEach((ad: Object) => {
                 this.advertisements.push(ad);
             })
-        })
-        
+        })     
         
         this.selectedCategory = category;
     }
