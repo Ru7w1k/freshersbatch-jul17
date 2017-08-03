@@ -8,7 +8,7 @@ import { Adv } from '../../classes/Adv/adv.class';
 export class AdvertisementService {  
     
     ads: Adv[] = [];
-    url: string = 'http:// 192.168.3.242:9000';
+    url: string = 'http://192.168.3.242:9000';
 
     constructor(private _http: Http) {
 

@@ -74,6 +74,7 @@ export class AppComponent  {
         this.userService.authToken = '';
         this.userService.loggedIn = false;
         this.loggedIn = false;
+        this.router.navigate(['']);
       },
       (error) => {
         console.log('error', error);
