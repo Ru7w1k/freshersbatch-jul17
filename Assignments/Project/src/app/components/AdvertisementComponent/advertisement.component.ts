@@ -24,20 +24,23 @@ export class AdvertisementComponent {
         console.log('adv', this.adv)
     }
 
-    // sendMsg(msg: string) {
-    //     if(!this.userService.isLoggedIn().status) {
-    //         this.router.navigate(['login']);
-    //         return;
-    //     }
+    sendMsg(msg: string) {
+        console.log('send msg', msg)
 
+        $('#myModal').modal('hide');
 
-    //     this.advertisementService.sendMessage(msg, this.adv.postId, this.userService.authToken).subscribe(
-    //         (response) => {
-    //             console.log('msg sent', response)
-    //         }
-    //     );
+        if(!this.userService.isLoggedIn().status) {
+            this.router.navigate(['login']);
+            return;
+        }
 
-    //     this.router.navigate(['adv/', this.adv.postId]);
-    // }
+        this.advertisementService.sendMessage(msg, this.adv.id, this.userService.authToken).subscribe(
+            (response) => {
+                console.log('msg sent', response)
+            }
+        );
+
+        this.router.navigate(['adv/', this.adv.id]);
+    }
 
 }

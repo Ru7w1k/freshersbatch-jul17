@@ -104,11 +104,12 @@ export class AdvertisementService {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let options = new RequestOptions({headers: headers });
-        return this._http.get(this.url + "/posts/search?category=" + category, options).map((response: Response)=>response.json());
+        return this._http.get(this.url + "/posts/search?category=" + category , options).map((response: Response)=>response.json());
 
     }
 
     sendMessage(msg: string, postId: string, authToken: string) {
+        console.log('msg', msg, 'postId', postId, 'token', authToken)
         let headers = new Headers();
         let jsonReq = {message: msg, postId: postId};
         headers.append('Content-Type', 'application/json');

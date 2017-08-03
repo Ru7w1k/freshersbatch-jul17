@@ -36,6 +36,9 @@ export class LoginComponent {
                 this.router.navigate(['/']);
                 this.notificationsService.emit(true);
             }
+            else{
+                this.isLoginSuccess = false;
+            }
         });        
     }
     

@@ -17,6 +17,12 @@
                             <input type="button" name="edit" [value]="actions[0]" class="btn btn-primary" (click)="this.router.navigate(['editadv', adv.id])" >							
                             <input type="button" name="delete" [value]="actions[1]" class="btn btn-danger" (click)="deleteAdv(adv.id)">
                         </div>
+                        <div  *ngIf="adv.replies.length > 0" style="clear: both; padding: 20px">
+                            Replies :
+                            <div  *ngFor="let msg of adv.replies">
+                                {{msg.senderUserId}} - {{msg.message}}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
