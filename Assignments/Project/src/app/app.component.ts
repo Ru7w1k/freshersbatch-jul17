@@ -18,6 +18,7 @@ export class AppComponent  {
   categories: string[] = [];
 
   constructor(private advertisementService:AdvertisementService, private userService:UserService, private router:Router, private notificationsService: NotificationsService) {
+    console.log('AppComponent Constructor');
     this.updateLoginStatus();
 
     notificationsService.emitChange.subscribe(
@@ -34,15 +35,12 @@ export class AppComponent  {
         this.categories.push(element.name)
       })    
     );
-  }
 
-  ngOnChange() {
-    this.loggedIn = this.userService.isLoggedIn().status;
-    this.username = this.userService.isLoggedIn().username;
   }
 
   search(text: string) {
     console.log('search clicked', text)
+    console.log('search navigating')
     this.router.navigate(['search',text])
   }
 

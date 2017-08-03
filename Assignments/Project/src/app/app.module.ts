@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent }  from './app.component';
 import { HomeComponent } from './components/HomeComponent/home.component'
+import { SearchComponent } from './components/SearchComponent/search.component'
 import { LoginComponent } from './components/LoginComponent/login.component'
 import { SignUpComponent } from './components/SignUpComponent/signup.component'
 import { PostAdvertisementComponent } from './components/PostAdvertisementComponent/post-advertisement.component'
@@ -17,7 +18,7 @@ import { MyAdvertisementsComponent } from './components/MyAdvertisementsComponen
 @NgModule({
   imports:      [ BrowserModule, RouterModule.forRoot([ 
                   {path: '', component: HomeComponent},
-                  {path: 'search/:search', component: HomeComponent}, 
+                  {path: 'search/:search', component: SearchComponent}, 
                   {path: 'adv/:id', component: AdvertisementComponent},
                   {path: 'login', component: LoginComponent},
                   {path: 'signup', component: SignUpComponent},
@@ -27,7 +28,7 @@ import { MyAdvertisementsComponent } from './components/MyAdvertisementsComponen
                   {path: 'editadv/:id', component: EditAdvertisementComponent},
                   {path: 'postAdv', component: PostAdvertisementComponent} 
                 ]), HttpModule, FormsModule, ReactiveFormsModule,],
-  declarations: [ AppComponent, HomeComponent, LoginComponent, SignUpComponent, PostAdvertisementComponent, AdvertisementComponent, MyProfileComponent, EditAdvertisementComponent, MyAdvertisementsComponent],
+  declarations: [ AppComponent, HomeComponent, LoginComponent, SignUpComponent, PostAdvertisementComponent, AdvertisementComponent, MyProfileComponent, EditAdvertisementComponent, MyAdvertisementsComponent, SearchComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

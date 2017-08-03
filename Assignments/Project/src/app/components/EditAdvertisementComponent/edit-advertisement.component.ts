@@ -17,7 +17,7 @@ export class EditAdvertisementComponent {
     categories: string[] = [];
     isUpdated: boolean = false;
     isError: boolean = false;
-    adv: Object = {
+    adv: any = {
         postId: 0, 
         status: '', 
         title: '', 

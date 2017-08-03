@@ -4,10 +4,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AdvertisementService } from '../../services/AdvertisementService/advertisement.service'
 
 @Component({
-    selector: 'home',
-    templateUrl: './home.html'
+    selector: 'search',
+    templateUrl: './search.html'
 })
-export class HomeComponent {
+export class SearchComponent {
 
     msg:string = '';
     categories: string[] = [];
@@ -23,19 +23,23 @@ export class HomeComponent {
 
         this.advertisements = [];
 
+        this.activatedRoute.params.subscribe(
+            (val:any) => {
+                console.log('params', val)
+            this.search = val.search;
+            this.updateSearch();
+        })  
+
         // this.search = this.activatedRoute.snapshot.params['search'];
-        console.log('search Text', this.search)
-        this.updateSearch();
-        // this.activatedRoute.params.subscribe(
-        //     (val:any) => {
-        //     this.search = val;
-        //     this.updateSearch();
-        // })  
+        // console.log('search Text', this.search)
+        // this.updateSearch();
+
         
         console.log(this.advertisements)
     }
 
     updateSearch() {
+        this.advertisements = [];
         console.log('update Search')
         if(this.search != null && this.search != undefined && this.search != '') {
             console.log('if', this.search)

@@ -80,16 +80,8 @@ export class AdvertisementService {
 
     getAdvertisement(postId: string) {
         let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        headers.append('auth-token', '598145b18562a014399011c8');
         let options = new RequestOptions({headers: headers });
-        return this._http.get(this.url + "/post?postId=" + postId, options).map((response: Response)=>response.json());
-    }
-
-
-
-    getPhoto() {
-
+        return this._http.get(this.url + "/viewAd?postId=" + postId, options).map((response: Response)=>response.json());
     }
 
     searchAdvertisementByCategory(category: string) {
@@ -98,18 +90,6 @@ export class AdvertisementService {
         headers.append('auth-token', '598145b18562a014399011c8');
         let options = new RequestOptions({headers: headers });
         return this._http.get(this.url + "/posts/search?category=" + category, options).map((response: Response)=>response.json());
-
-    }
-
-    deletePhoto() {
-
-    }
-
-    viewAdvertisement() {
-
-    }
-
-    sendMessage() {
 
     }
     

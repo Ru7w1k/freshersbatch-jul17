@@ -45,14 +45,16 @@ body {
 }
 
 .footer {
+	clear: both;
 	background-color:#000000;
 	color: white;
+	display: block;
 	position: absolute;
 	padding: 15px;
 	left: 0;
-  bottom: 0;
-  width: 100%;
-  overflow: hidden;
+	bottom: 0;
+	width: 100%;
+	overflow: hidden;
 }
 
 .footer img {
