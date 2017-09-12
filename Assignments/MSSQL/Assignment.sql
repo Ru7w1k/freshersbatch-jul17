@@ -4,7 +4,7 @@ CREATE TABLE Employee (
 	EmpId varchar(10) primary key not null,
 	Ename varchar(40) not null,
 	Salary numeric not null,
-	ExperienceInYears numeric 
+	ExperienceInYears numeric, 
 )
 
 INSERT INTO Employee VALUES ('101', 'Emp1', 10000, 2);
@@ -62,7 +62,6 @@ INSERT INTO SalesDetails VALUES ('008', 10, 30, 'West');
 
 SELECT * FROM SalesDetails;
 
-SELECT Area, (UnitPrice * OrderQty) AS TotalSales FROM SalesDetails;
 SELECT Area, SUM(UnitPrice * OrderQty) AS TotalSales FROM SalesDetails GROUP BY Area;
 
 SELECT TOP(1) Area FROM (SELECT Area, SUM(UnitPrice * OrderQty) AS TotalSales FROM SalesDetails GROUP BY Area) AS T;
