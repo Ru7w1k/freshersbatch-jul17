@@ -1,5 +1,6 @@
 // Employee Class using basic modular pattern
 function Employee(_empName, _empSalary, _empId, _empDeptNo) {
+	// PRIVATE Variables
 	var empName = _empName;
 	var empSalary = _empSalary;
 	var empId = _empId;
